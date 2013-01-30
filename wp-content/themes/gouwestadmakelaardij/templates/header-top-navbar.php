@@ -19,3 +19,16 @@
     </div>
   </div>
 </div>
+
+<header>
+    <div class="header">
+    </div>
+    <div class="container">         
+        <div class="row-fluid clearfix">
+          <div class="span6">
+            <h1>De makelaar voor Waddinxveen en omstreken</h1>
+            <a href="http://www.vbo.nl/makelaars/4140/gouwestad-makelaardij/aanbod.html" class="btn btn-large btn-primary btn-block">Bekijk ons woningaanbod</a>
+          </div>
+        </div>
+    </div>
+  </header>

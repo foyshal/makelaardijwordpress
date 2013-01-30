@@ -118,13 +118,14 @@ header{
     background: @yellow;
     padding: 2.4em 0;
     position: relative;
+    margin-bottom: 2%;
     -webkit-transition: 1.1s ease-in-out all;
    -moz-transition: 1.1s ease-in-out all;
    -o-transition: 1.1s ease-in-out all;
    -ms-transition: 1.1s ease-in-out all;
    transition: 1.1s ease-in-out all;
    .header{
-      background: url("../images/headerimage.jpg") top right no-repeat;
+      background: url("../../../../images/headerimage.jpg") top right no-repeat;
       background-size: cover;
       .opacity(90);
       position: absolute;
@@ -139,11 +140,16 @@ header{
          -ms-transition: 1.1s ease-in-out all;
          transition: 1.1s ease-in-out all;
    }
+   h1{
+    display: none;
+   }
+
   .container{
       display: block;
       position: relative;
       z-index: 2
    }
+
     img{
           display: block;
           margin: 0 auto 2%;
@@ -193,7 +199,7 @@ header:hover{
 /* ==========================================================================
   The homepage header has to be a little bigger
 ========================================================================== */
-.zuidplashof-home header{
+.home header{
     padding: 6em 0;
     img{
       width: 30em;
@@ -205,13 +211,12 @@ header:hover{
        .opacity(100);
       }
     }
+    h1{
+      display: block;
+    }
 }
 
-.zuidplashof-sub{
-  h1{
-    display:none;
-  }
-}
+
  
 /* ==========================================================================
    Additional Table styles
@@ -603,6 +608,21 @@ footer.copy p {
 .listingoverview{
   min-height: 220px;
   margin-bottom: 1%;
+}
+
+.wpp_search_elements{
+  font-size: 0.7em;
+  list-style: none;
+  margin-left: 0;
+  li{
+    list-style: none;
+    margin-left: 0;
+  }
+  select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    font-size: 0.8em;
+    height: 1.8em;
+    line-height: 1.2em;
+  }
 }
 
 

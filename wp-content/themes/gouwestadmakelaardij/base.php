@@ -12,6 +12,7 @@
     }
   ?>
 
+<section>
   <div class="wrap container" role="document">
     <div class="content row-fluid">
       <div class="main <?php echo roots_main_class(); ?>" role="main">
@@ -24,6 +25,7 @@
       <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
+</section>
 
   <?php get_template_part('templates/footer'); ?>
 
