@@ -179,20 +179,20 @@ wp_deregister_script('jquery-fancybox-css');
         <div class=""><?php @the_content(); ?></div>
         <div class="row-fluid">
           <div class="span4">
-            <a href="" class="btn btn-large btn-warning btn-block">Plattegrond</a>
+            <a href="" class="btn btn-large btn-primary btn-block">Plattegrond</a>
           </div>
           <div class="span4">
-            <a href="" class="btn btn-large btn-warning btn-block">Brochure downloaden</a>
+            <a href="" class="btn btn-large btn-primary btn-block">Brochure downloaden</a>
           </div>
           <div class="span4">
-            <a href="" class="btn btn-large btn-warning btn-block">Woonfilm bekijken</a>
+            <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
           </div>
           </div>
         </div>
     
 
-      <div class="span3">
-                  <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
+        <div class="span3">
+          <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
             <ul id="property_stats" class="">
               <?php if(!empty($post->display_address)): ?>
               <li class="">
@@ -246,6 +246,7 @@ wp_deregister_script('jquery-fancybox-css');
       </div>
     </div>
 
+    <div class="row-fluid">
         <?php if(class_exists('WPP_Inquiry')): ?>
           <h2><?php _e('Interested?','wpp') ?></h2>
           <?php WPP_Inquiry::contact_form(); ?>
@@ -255,12 +256,11 @@ wp_deregister_script('jquery-fancybox-css');
         <?php if($post->post_parent): ?>
           <a href="<?php echo $post->parent_link; ?>" class="<?php wpp_css('btn', "btn btn-return"); ?>"><?php _e('Return to building page.','wpp') ?></a>
         <?php endif; ?>
+    </div>
 
-      </div><!-- .entry-content -->
-    </div><!-- #post-## -->
+</div><!-- .entry-content -->
 
-    </div><!-- #content -->
-  </div><!-- #container -->
+
 
 
 <?php
