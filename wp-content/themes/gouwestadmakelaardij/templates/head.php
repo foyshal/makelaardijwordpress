@@ -33,7 +33,10 @@
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
   <?php endif; ?>
 
+  <link rel="stylesheet/less" href="<?php echo get_template_directory_uri(); ?>/assets/css/less/style.less">
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/libs/less-1.3.0.min.js"></script>
+  
     <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  
+
 </head>
