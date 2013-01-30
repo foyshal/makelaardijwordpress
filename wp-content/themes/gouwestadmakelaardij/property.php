@@ -104,37 +104,68 @@ wp_deregister_script('jquery-fancybox-css');
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+      <div class="span12">
+        <div class="<?php wpp_css('property::title', "building_title_wrapper"); ?>">
+          <h1 class="page-header"><?php the_title(); ?></h1>
+          <h3><?php the_tagline(); ?></h3>
+        </div>
+      </div>
+    </div>
 
-      <div class="<?php wpp_css('property::title', "building_title_wrapper"); ?>">
-        <h1 class="page-header"><?php the_title(); ?></h1>
-        <h3><?php the_tagline(); ?></h3>
+
+
+    <div class="row-fluid">
+      <div class="span9">
+        <?php if (has_post_thumbnail()) {
+        the_post_thumbnail();
+        }?>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <!-- Get all the images php code -->
+       <?php
+        $gallery = get_children( 'posts_per_page=5post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
+        $attr = array(
+            'class' => "attachment-$size wp-post-image",
+        );
+        foreach( $gallery as $image ) {
+             echo '<a href="' . wp_get_attachment_url($image->ID) . '" rel="gallery-' . get_the_ID() . '">';
+             echo wp_get_attachment_image($image->ID, 'thumbnail', false, $attr);
+             echo '</a>';
+        }
+        ?>
+    </div>
+    <div class="row-fluid">
+      <div class="span9">
+        <div class=""><?php @the_content(); ?></div>
+
+          <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
+            <ul id="property_stats" class="">
+              <?php if(!empty($post->display_address)): ?>
+              <li class="">
+                <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
+                <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
+              </li>
+              <?php endif; ?>
+              <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
+            </ul>
+          <?php else: ?>
+            <?php if(!empty($post->display_address)): ?>
+            <ul id="property_stats" class="<?php wpp_css('property::property_stats', "property_stats overview_stats list"); ?>">
+              <li class="wpp_stat_plain_list_location alt">
+                <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
+                <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
+              </li>
+            </ul>
+            <?php endif; ?>
+            <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
+          <?php endif; ?>
       </div>
 
 
-      <div class="<?php wpp_css('property::the_content', "wpp_the_content"); ?>"><?php @the_content(); ?></div>
 
-        <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
-          <ul id="property_stats" class="<?php wpp_css('property::property_stats', "property_stats overview_stats list"); ?>">
-            <?php if(!empty($post->display_address)): ?>
-            <li class="wpp_stat_plain_list_location alt">
-              <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
-              <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
-            </li>
-            <?php endif; ?>
-            <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
-          </ul>
-        <?php else: ?>
-          <?php if(!empty($post->display_address)): ?>
-          <ul id="property_stats" class="<?php wpp_css('property::property_stats', "property_stats overview_stats list"); ?>">
-            <li class="wpp_stat_plain_list_location alt">
-              <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
-              <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
-            </li>
-          </ul>
-          <?php endif; ?>
-          <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
-        <?php endif; ?>
 
+      <div class="span3">
         <?php if(!empty($wp_properties['taxonomies'])) foreach($wp_properties['taxonomies'] as $tax_slug => $tax_data): ?>
           <?php if(get_features("type={$tax_slug}&format=count")):  ?>
           <div class="<?php echo $tax_slug; ?>_list">
@@ -155,11 +186,16 @@ wp_deregister_script('jquery-fancybox-css');
           <p><?php echo  do_shortcode(html_entity_decode($post->$meta_slug)); ?></p>
         <?php endforeach; ?>
         <?php endif; ?>
+      </div>
+    </div>
 
-
+    <div class="row-fluid">
+      <div class="span12">
         <?php if(WPP_F::get_coordinates()): ?>
           <div id="property_map" class="<?php wpp_css('property::property_map'); ?>" style="width:100%; height:450px"></div>
         <?php endif; ?>
+      </div>
+    </div>
 
         <?php if(class_exists('WPP_Inquiry')): ?>
           <h2><?php _e('Interested?','wpp') ?></h2>
