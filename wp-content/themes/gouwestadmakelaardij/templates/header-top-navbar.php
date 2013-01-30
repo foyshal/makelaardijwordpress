@@ -1,4 +1,4 @@
-<header class="banner navbar navbar-fixed-top" role="banner">
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -9,7 +9,7 @@
       <a class="brand" href="<?php echo home_url(); ?>/">
         <?php bloginfo('name'); ?>
       </a>
-      <nav class="nav-main nav-collapse" role="navigation">
+      <nav class="nav-collapse" role="navigation">
         <?php
           if (has_nav_menu('primary_navigation')) :
             wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav'));
@@ -18,4 +18,4 @@
       </nav>
     </div>
   </div>
-</header>
+</div>
