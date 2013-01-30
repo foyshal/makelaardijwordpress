@@ -104,37 +104,49 @@ wp_deregister_script('jquery-fancybox-css');
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <div class="span12">
-        <div class="<?php wpp_css('property::title', "building_title_wrapper"); ?>">
-          <h1 class="page-header"><?php the_title(); ?></h1>
-          <h3><?php the_tagline(); ?></h3>
-        </div>
-      </div>
-    </div>
 
-
-
+<!-- Featured Image & Title -->
     <div class="row-fluid">
       <div class="span9">
-        <?php if (has_post_thumbnail()) {
-        the_post_thumbnail();
-        }?>
+
+      <div id="myCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <div class="active item">
+                <?php if (has_post_thumbnail()) {
+                the_post_thumbnail();
+                }?>
+              </div>
+              <?php
+            $gallery = get_children( 'posts_per_page=5post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
+            $attr = array(
+                'class' => "attachment-$size wp-post-image",
+            );
+            foreach( $gallery as $image ) {
+                echo '<div class="item">';
+                 echo '<a href="' . wp_get_attachment_url($image->ID) . '" rel="gallery-' . get_the_ID() . '">';
+                 echo wp_get_attachment_image($image->ID, 'full', false, $attr);
+                 echo '</a>';
+                echo '</div>';
+            }
+            ?>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+        </div>
+
+      <div class="span3">
+         <h1 class="page-header"><?php the_title(); ?></h1>
+          <hp><?php the_tagline(); ?></hp>
+          <?php if($property['price']): ?>
+                <h2 class="property_price"><?php echo $property['price']; ?></h2>
+          <?php endif; ?>
       </div>
     </div>
-    <div class="row-fluid">
-      <!-- Get all the images php code -->
-       <?php
-        $gallery = get_children( 'posts_per_page=5post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
-        $attr = array(
-            'class' => "attachment-$size wp-post-image",
-        );
-        foreach( $gallery as $image ) {
-             echo '<a href="' . wp_get_attachment_url($image->ID) . '" rel="gallery-' . get_the_ID() . '">';
-             echo wp_get_attachment_image($image->ID, 'thumbnail', false, $attr);
-             echo '</a>';
-        }
-        ?>
-    </div>
+
+
     <div class="row-fluid">
       <div class="span9">
         <div class=""><?php @the_content(); ?></div>
