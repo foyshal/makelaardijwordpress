@@ -27,7 +27,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
-  <?php wp_head(); ?>
+  <!--<?php wp_head(); ?>-->
 
   <?php if (wp_count_posts()->publish > 0) : ?>
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
@@ -35,7 +35,7 @@
 
   <link rel="stylesheet/less" href="<?php echo get_template_directory_uri(); ?>/assets/css/less/style.less">
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/libs/less-1.3.0.min.js"></script>
-  
+
     <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
