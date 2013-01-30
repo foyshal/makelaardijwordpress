@@ -149,9 +149,50 @@ wp_deregister_script('jquery-fancybox-css');
 
     <div class="row-fluid">
       <div class="span9">
-        <div class=""><?php @the_content(); ?></div>
+        <div class="row-fluid">
+          <?php if($property['kamers']): ?>
+            <div class="span3">
+              <p><i class="icon-glass"></i>Aantal kamers: <?php echo $property['kamers']; ?></p>
+            </div>
+          <?php endif; ?>
+          <?php if($property['gbo']): ?>
+            <div class="span3">
+              <p><i class="icon-glass"></i> GBO: <?php echo $property['gbo']; ?> m<sup>2</sup></p>
+            </div>
+          <?php endif; ?>
+          <?php if($property['inhoud']): ?>
+            <div class="span3">
+              <p><i class="icon-glass"></i>Inhoud: <?php echo $property['inhoud']; ?> m<sup>3</sup></p>
+            </div> 
+          <?php endif; ?>
+          <?php if($property['perceel']): ?>
+            <div class="span3">
+              <p><i class="icon-glass"></i> Perceel: <?php echo $property['perceel']; ?> m<sup>2</sup></p>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
 
-          <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
+    <div class="row-fluid">
+      <div class="span9">
+        <div class=""><?php @the_content(); ?></div>
+        <div class="row-fluid">
+          <div class="span4">
+            <a href="" class="btn btn-large btn-warning btn-block">Plattegrond</a>
+          </div>
+          <div class="span4">
+            <a href="" class="btn btn-large btn-warning btn-block">Brochure downloaden</a>
+          </div>
+          <div class="span4">
+            <a href="" class="btn btn-large btn-warning btn-block">Woonfilm bekijken</a>
+          </div>
+          </div>
+        </div>
+    
+
+      <div class="span3">
+                  <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
             <ul id="property_stats" class="">
               <?php if(!empty($post->display_address)): ?>
               <li class="">
@@ -172,12 +213,8 @@ wp_deregister_script('jquery-fancybox-css');
             <?php endif; ?>
             <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
           <?php endif; ?>
-      </div>
 
 
-
-
-      <div class="span3">
         <?php if(!empty($wp_properties['taxonomies'])) foreach($wp_properties['taxonomies'] as $tax_slug => $tax_data): ?>
           <?php if(get_features("type={$tax_slug}&format=count")):  ?>
           <div class="<?php echo $tax_slug; ?>_list">

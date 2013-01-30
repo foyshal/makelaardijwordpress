@@ -30,19 +30,18 @@
    $thumbnail_dimentions = WPP_F::get_image_dimensions($wpp_query['thumbnail_size']);
 
 ?>
- <div class="<?php wpp_css('property_overview::row_view', "wpp_row_view wpp_property_view_result"); ?>">
-  <div class="<?php wpp_css('property_overview::all_properties', "all-properties"); ?>">
-  <?php foreach ( returned_properties('load_gallery=false') as $property) {  ?>
 
-    <div class="<?php wpp_css('property_overview::property_div', "property_div {$property['post_type']} clearfix"); ?>">
+        <?php foreach ( returned_properties('load_gallery=false') as $property) {  ?>
 
-        <div class="<?php wpp_css('property_overview::left_column', "wpp_overview_left_column"); ?>" style="width:<?php echo $thumbnail_dimentions['width']+12; /* 12 is boubled image border */?>px; float:left; ">
-          <?php property_overview_image(); ?>
+    
+    <div class="row-fluid listingoverview">
+        <div class="span4">
+            <?php property_overview_image(); ?>
         </div>
 
-        <div class="<?php wpp_css('property_overview::right_column', "wpp_overview_right_column"); ?>" style="margin-left:<?php echo $thumbnail_dimentions['width']+12; /* 12 is boubled image border */?>px; ">
+        <div class="span8">
 
-            <ul class="<?php wpp_css('property_overview::data', "wpp_overview_data"); ?>">
+            <ul class="unstyled">
                 <li class="property_title">
                     <a <?php echo $in_new_window; ?> href="<?php echo $property['permalink']; ?>"><?php echo $property['post_title']; ?></a>
                     <?php if($property['is_child']): ?>
@@ -96,8 +95,8 @@
     </div><?php // .property_div ?>
 
     <?php } /** end of the propertyloop. */ ?>
-    </div><?php // .all-properties ?>
-	</div><?php // .wpp_row_view ?>
+   <?php // .all-properties ?>
+	<?php // .wpp_row_view ?>
 <?php } else {  ?>
 <div class="wpp_nothing_found">
    <p><?php echo sprintf(__('Sorry, no properties found - try expanding your search, or <a href="%s">view all</a>.','wpp'), site_url().'/'.$wp_properties['configuration']['base_slug']); ?></p>
