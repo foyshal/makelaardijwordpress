@@ -18,8 +18,8 @@
 */
 
 // Uncomment to disable fancybox script being loaded on this page
-wp_deregister_script('jquery-fancybox');
-wp_deregister_script('jquery-fancybox-css');
+//wp_deregister_script('jquery-fancybox');
+//wp_deregister_script('jquery-fancybox-css');
 ?>
 
 <?php get_template_part('templates/head'); ?>
@@ -35,7 +35,6 @@ wp_deregister_script('jquery-fancybox-css');
     }
   ?>
 
-
 <?php the_post(); ?>
 
     <script type="text/javascript">
@@ -45,15 +44,6 @@ wp_deregister_script('jquery-fancybox-css');
 
     jQuery(document).ready(function() {
 
-      if(typeof jQuery.fn.fancybox == 'function') {
-        jQuery("a.fancybox_image, .gallery-item a").fancybox({
-          'transitionIn'  :  'elastic',
-          'transitionOut'  :  'elastic',
-          'speedIn'    :  600,
-          'speedOut'    :  200,
-          'overlayShow'  :  false
-        });
-      }
 
       if(typeof google == 'object') {
         initialize_this_map();
@@ -118,7 +108,14 @@ wp_deregister_script('jquery-fancybox-css');
                 }?>
               </div>
               <?php
-            $gallery = get_children( 'posts_per_page=5post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
+            $argsgallery = array(
+            'numberposts' => 50,
+            'order'=> 'ASC',
+            'post_mime_type' => 'image',
+            'post_parent' => $post->ID,
+            'post_type' => 'attachment'
+            );
+            $gallery = get_children( $argsgallery );
             $attr = array(
                 'class' => "attachment-$size wp-post-image",
             );
@@ -146,7 +143,7 @@ wp_deregister_script('jquery-fancybox-css');
       </div>
     </div>
 
-
+<!-- Belangrijkste eigenschappen -->
     <div class="row-fluid">
       <div class="span9">
         <div class="row-fluid">
@@ -174,12 +171,25 @@ wp_deregister_script('jquery-fancybox-css');
       </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $('.plattegrond').fancybox({
+              width: '95%',
+              height: '95%',
+              autoSize: true
+              });
+        });
+    </script>
+
+
+<!-- Introductietekst -->
     <div class="row-fluid">
       <div class="span9">
-        <div class=""><?php @the_content(); ?></div>
+        <div class=""><p><?php echo $property['introductietext']; ?></p></div>
+        <!-- Links floorplanner ed -->
         <div class="row-fluid">
           <div class="span4">
-            <a href="" class="btn btn-large btn-primary btn-block">Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>/embed" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Brochure downloaden</a>
@@ -187,16 +197,39 @@ wp_deregister_script('jquery-fancybox-css');
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
           </div>
+        </div>
+
+<!-- Aanvullende teksten -->
+        <div class="row-fluid">
+          <div class="span12">
+           <?php if($property['begane_grond_text']): ?>
+              <h4>Begane grond</h4>
+              <p><?php echo $property['begane_grond_text']; ?></p>
+          <?php endif; ?>
+          <?php if($property['eerste_verdieping_text']): ?>
+              <h4>Eerste verdieping</h4>
+              <p><?php echo $property['eerste_verdieping_text']; ?></p>
+          <?php endif; ?>
+          <?php if($property['tweede_verdieping_text']): ?>
+              <h4>Tweede verdieping</h4>
+              <p><?php echo $property['tweede_verdieping_text']; ?></p>
+          <?php endif; ?>
+
+
+
           </div>
         </div>
-    
-
+      </div>
+ 
+<!-- -->
         <div class="span3">
           <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
             <ul id="property_stats" class="">
               <?php if(!empty($post->display_address)): ?>
               <li class="">
-                <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
+                <span class="attribute"><?php 
+                
+                echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
                 <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
               </li>
               <?php endif; ?>
@@ -215,26 +248,7 @@ wp_deregister_script('jquery-fancybox-css');
           <?php endif; ?>
 
 
-        <?php if(!empty($wp_properties['taxonomies'])) foreach($wp_properties['taxonomies'] as $tax_slug => $tax_data): ?>
-          <?php if(get_features("type={$tax_slug}&format=count")):  ?>
-          <div class="<?php echo $tax_slug; ?>_list">
-          <h2><?php echo $tax_data['label']; ?></h2>
-          <ul class="clearfix">
-          <?php get_features("type={$tax_slug}&format=list&links=true"); ?>
-          </ul>
-          </div>
-          <?php endif; ?>
-        <?php endforeach; ?>
-
-        <?php if(is_array($wp_properties['property_meta'])): ?>
-        <?php foreach($wp_properties['property_meta'] as $meta_slug => $meta_title):
-          if(empty($post->$meta_slug) || $meta_slug == 'tagline')
-            continue;
-        ?>
-          <h2><?php echo $meta_title; ?></h2>
-          <p><?php echo  do_shortcode(html_entity_decode($post->$meta_slug)); ?></p>
-        <?php endforeach; ?>
-        <?php endif; ?>
+        
       </div>
     </div>
 

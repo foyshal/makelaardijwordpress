@@ -40,7 +40,6 @@
         </div>
 
         <div class="span8">
-
             <ul class="unstyled">
                 <li class="property_title">
                     <a <?php echo $in_new_window; ?> href="<?php echo $property['permalink']; ?>"><?php echo $property['post_title']; ?></a>
