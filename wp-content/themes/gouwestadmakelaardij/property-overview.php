@@ -33,6 +33,8 @@
 
         <?php foreach ( returned_properties('load_gallery=false') as $property) {  ?>
 
+<section>
+    <div class="container">
     
     <div class="row-fluid listingoverview">
         <div class="span4">
@@ -101,3 +103,6 @@
    <p><?php echo sprintf(__('Sorry, no properties found - try expanding your search, or <a href="%s">view all</a>.','wpp'), site_url().'/'.$wp_properties['configuration']['base_slug']); ?></p>
 </div>
 <?php } ?>
+
+</div>
+</section>
