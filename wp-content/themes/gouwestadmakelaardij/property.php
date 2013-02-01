@@ -258,9 +258,6 @@
             <?php endif; ?>
             <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
           <?php endif; ?>
-
-
-        
       </div>
     </div>
 
