@@ -27,7 +27,10 @@
         <div class="row-fluid clearfix">
           <div class="span6">
             <h1>De makelaar voor Waddinxveen en omstreken</h1>
-            <a href="http://www.vbo.nl/makelaars/4140/gouwestad-makelaardij/aanbod.html" class="btn btn-large btn-primary btn-block">Bekijk ons woningaanbod</a>
+            <a href="#" class="btn btn-large btn-primary btn-block" id="zoekform-link">Bekijk ons woningaanbod</a>
+            <div class="zoekformulier" id="zoekformulier">
+              <?php echo do_shortcode("[property_search per_page=10]"); ?>
+            </div>
           </div>
         </div>
     </div>

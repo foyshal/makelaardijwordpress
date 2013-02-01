@@ -189,7 +189,7 @@
         <!-- Links floorplanner ed -->
         <div class="row-fluid">
           <div class="span4">
-            <a href="<?php echo $property['floorplanner'] ?>/embed" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Brochure downloaden</a>
@@ -214,6 +214,7 @@
               <h4>Tweede verdieping</h4>
               <p><?php echo $property['tweede_verdieping_text']; ?></p>
           <?php endif; ?>
+
 
 
 

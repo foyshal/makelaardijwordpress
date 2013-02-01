@@ -601,6 +601,7 @@ if(!function_exists('wpi_draw_pagination')):
     ob_end_clean();
 
     ob_start(); ?>
+
     <div class="properties_pagination <?php echo $settings['class']; ?> wpp_slider_pagination" id="properties_pagination_<?php echo $unique_hash; ?>">
       <div class="wpp_pagination_slider_status">
         <span class="wpp_property_results_options">
@@ -642,6 +643,7 @@ if(!function_exists('wpi_draw_pagination')):
       <?php } ?>
     </div>
     <div class="ajax_loader"></div>
+
     <?php
     $html_result = ob_get_contents();
     ob_end_clean();
