@@ -16,3 +16,59 @@ require_once locate_template('/lib/htaccess.php');        // Rewrites for assets
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
 require_once locate_template('/lib/custom.php');          // Custom functions
+
+
+
+if(!function_exists('property_overview_image')) {
+  /**
+   * Renders the overview image of current property
+   *
+   * Used for property_overview to render the overview image based on current query and global $property object
+   *
+   * @args return, image_type
+   *
+   * @since 1.17.3
+   */
+  function property_overview_image($args = '') {
+    global $wpp_query, $property;
+    $thumbnail_size = $wpp_query['thumbnail_size'];
+
+    $defaults = array(
+      'return' => 'false',
+      'image_type' => $thumbnail_size,
+    );
+    $args = wp_parse_args( $args, $defaults );
+
+    /* Make sure that a feature image URL exists prior to committing to fancybox */
+    if($wpp_query['fancybox_preview'] == 'true' && !empty($property['featured_image_url'])) {
+      $thumbnail_link = $property['featured_image_url'];
+      $link_class = "fancybox_image";
+    } else {
+      $thumbnail_link = $property['permalink'];
+    }
+
+    $image = wpp_get_image_link($property['featured_image'], $thumbnail_size, array('return'=>'array'));
+
+
+    if(!empty($image)) {
+      ob_start();
+      ?>
+      <div class="property_image">
+        <a href="<?php echo $property['permalink']; ?>" title="<?php echo $property['post_title'] . ($property['parent_title'] ? __(' of ', 'wpp') . $property['parent_title'] : "");?>"  class="property_overview_thumb">
+          <img src="<?php echo $image['link']; ?>" alt="<?php echo $property['post_title'];?>" />
+        </a>
+      </div>
+      <?php
+      $html = ob_get_contents();
+      ob_end_clean();
+    } else {
+      $html = '';
+    }
+    if($args['return'] == 'true') {
+      return $html;
+    } else {
+      echo $html;
+    }
+  }
+}
+

@@ -214,9 +214,20 @@
               <h4>Tweede verdieping</h4>
               <p><?php echo $property['tweede_verdieping_text']; ?></p>
           <?php endif; ?>
-
-
-
+           <?php if($property['tuin_text']): ?>
+              <h4>Tuin</h4>
+              <p><?php echo $property['tuin_text']; ?></p>
+          <?php endif; ?>
+           <?php if($property['balkon_text']): ?>
+              <h4>Balkon</h4>
+              <p><?php echo $property['balkon_text']; ?></p>
+          <?php endif; ?>
+           <?php if($property['detail_text']): ?>
+              <p><?php echo $property['detail_text']; ?></p>
+          <?php endif; ?>
+           <?php if($property['overige_text']): ?>
+              <p><?php echo $property['overige_text']; ?></p>
+          <?php endif; ?>
 
           </div>
         </div>
