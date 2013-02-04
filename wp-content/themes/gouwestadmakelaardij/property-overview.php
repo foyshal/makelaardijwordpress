@@ -41,17 +41,31 @@
                             <div class="<?php wpp_css('property_overview::left_column', "wpp_overview_left_column"); ?>">
                               <?php property_overview_image(); ?>
                             </div>
+                            <ul class="elements">
+                                <?php if($property['gbo']): ?>
+                                      <li><i class="icon-glass"></i> <?php echo $property['gbo']; ?> m<sup>2</sup></li>
+                                  <?php endif; ?>
+                                  <?php if($property['inhoud']): ?>
+                                      <li><i class="icon-glass"></i> <?php echo $property['inhoud']; ?> m<sup>3</sup></li>
+                                  <?php endif; ?>
+                                  <?php if($property['kamers']): ?>
+                                      <li><i class="icon-glass"></i> <?php echo $property['kamers']; ?></li>
+                                  <?php endif; ?>
+                            </ul>
                         </div>
                         <div class="span8">
 
                             <div class="<?php wpp_css('property_overview::right_column', "wpp_overview_right_column"); ?>">
 
                                 <ul class="<?php wpp_css('property_overview::data', "wpp_overview_data"); ?>">
-                                    <h4 class="property_title">
+                                    <h4 class="property_title"><small>
                                         <a <?php echo $in_new_window; ?> href="<?php echo $property['permalink']; ?>"><?php echo $property['post_title']; ?></a>
                                         <?php if($property['is_child']): ?>
                                             of <a <?php echo $in_new_window; ?> href='<?php echo $property['parent_link']; ?>'><?php echo $property['parent_title']; ?></a>
-                                        <?php endif; ?>
+                                        <?php endif; ?></small>
+                                        <span class="property_price">
+                                            <?php echo $property['price']; ?>
+                                        </span>
                                     </h4>
 
                                 <?php if($property['custom_attribute_overview'] || $property['tagline']): ?>
@@ -64,13 +78,12 @@
                                     </li>
                                 <?php endif; ?>
 
-                                <?php if($property['phone_number']): ?>
-                                    <li class="property_phone_number"><?php echo $property['phone_number']; ?></li>
+
+                                <?php if($property['introductietext']): ?>
+                                    <li><?php echo $little_content = substr($property['introductietext'],0,110); ?> ...</li>
                                 <?php endif; ?>
 
-                                <?php if($property['price']): ?>
-                                    <li class="property_price"><?php echo $property['price']; ?></li>
-                                <?php endif; ?>
+                                <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary right">bekijk woning</a>
 
                                 <?php if($show_children && $property['children']): ?>
                                 <li class="child_properties">

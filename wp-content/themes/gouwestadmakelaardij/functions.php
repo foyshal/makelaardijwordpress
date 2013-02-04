@@ -72,3 +72,25 @@ if(!function_exists('property_overview_image')) {
   }
 }
 
+
+function the_breadcrumb() {
+	if(!is_home()) {
+		echo '<nav class="breadcrumb">';
+		echo '<a href="'.home_url('/').'">Home </a><span class="divider">/</span>';
+		if (is_category() || is_single()) {
+			the_category();
+			if (is_single()) {
+				echo '<a href="'.home_url('/woningaanbod/').'">Woningaanbod</a>';
+				
+				echo ' <span class="divider">/</span> ';
+				the_title();
+			}
+		} elseif (is_page()) {
+			echo the_title();
+		}
+		echo '</nav>';
+	}
+}
+
+
+

@@ -2389,8 +2389,8 @@ table [class*=span],
     */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('assets/font/fontawesome-webfont.eot');
-  src: url('assets/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('assets/font/fontawesome-webfont.woff') format('woff'), url('assets/font/fontawesome-webfont.ttf') format('truetype'), url('assets/font/fontawesome-webfont.svg#FontAwesome') format('svg');
+  src: url('../font/fontawesome-webfont.eot');
+  src: url('../font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../font/fontawesome-webfont.woff') format('woff'), url('../font/fontawesome-webfont.ttf') format('truetype'), url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -5920,6 +5920,9 @@ section {
 .content {
   padding: 0;
 }
+.right {
+  float: right;
+}
 /* ==========================================================================
   Typography
 ========================================================================== */
@@ -5977,6 +5980,9 @@ h3 {
 h4 {
   font-size: 1.4em;
 }
+h4 small {
+  font-size: 70%;
+}
 h5 {
   font-size: 1.3em;
 }
@@ -5998,6 +6004,9 @@ h6 {
 }
 .uppercase {
   text-transform: uppercase;
+}
+.intro {
+  font-style: italic;
 }
 /* ==========================================================================
   Coloring
@@ -8118,6 +8127,9 @@ section {
 .content {
   padding: 0;
 }
+.right {
+  float: right;
+}
 /* ==========================================================================
   Typography
 ========================================================================== */
@@ -8175,6 +8187,9 @@ h3 {
 h4 {
   font-size: 1.4em;
 }
+h4 small {
+  font-size: 70%;
+}
 h5 {
   font-size: 1.3em;
 }
@@ -8196,6 +8211,9 @@ h6 {
 }
 .uppercase {
   text-transform: uppercase;
+}
+.intro {
+  font-style: italic;
 }
 /* ==========================================================================
   Coloring
@@ -9138,7 +9156,21 @@ section.pagination {
 }
 .property_div {
   min-height: 220px;
-  margin-bottom: 1.5%;
+  margin-bottom: 2%;
+  border-bottom: 1px solid #eee;
+}
+.property_div .btn.right {
+  float: right;
+}
+.property_title a {
+  color: #6a6a6a;
+}
+.elements {
+  list-style: none;
+  font-size: 0.6em;
+}
+.elements li {
+  display: inline;
 }
 .wpp_search_elements {
   font-size: 0.7em;
@@ -9170,15 +9202,25 @@ section.pagination {
   height: 1.8em;
   line-height: 1.2em;
 }
+.property_price {
+  text-align: right;
+  float: right;
+}
 /* ==========================================================================
   Property 
 ========================================================================== */
 .page-header.prop-title {
-  margin-top: 0;
+  margin: 0 0 0.2em;
+}
+.carousel-control {
+  background: #FCAF17;
+  opacity: 1;
+  top: 45%;
 }
 .imp-elements {
   padding: 2% 1% 0;
   color: #fff;
+  font-size: 90%;
 }
 .imp-elements .row-fluid {
   padding: 0;
@@ -9186,4 +9228,10 @@ section.pagination {
 }
 .imp-elements .row-fluid p {
   margin: 0;
+}
+.imp-elements.overview {
+  font-size: 60%;
+}
+#overige-teksten {
+  display: none;
 }

@@ -18,6 +18,14 @@ $(document).ready(function() {
 	});
 });
 
+$(document).ready(function() {
+	$('#overige-teksten-link').click(function() {
+	  $('#overige-teksten').toggle('slow', function() {
+	    // Animation complete.
+	  });
+	});
+});
+
 
 
 

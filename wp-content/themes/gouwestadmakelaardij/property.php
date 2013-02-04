@@ -43,17 +43,7 @@
     var infowindow;
 
     jQuery(document).ready(function() {
-       if(typeof jQuery.fn.fancybox == 'function') {
-        jQuery("a.fancybox_image, .gallery-item a").fancybox({
-          'transitionIn'  :  'elastic',
-          'transitionOut'  :  'elastic',
-          'speedIn'    :  600,
-          'speedOut'    :  200,
-          'overlayShow'  :  false
-        });
-      }
-
-
+       
       if(typeof google == 'object') {
         initialize_this_map();
       } else {
@@ -99,14 +89,19 @@
   </script>
 
 
+
   <div id="container" class="container">
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
+      <div class="row-fluid">
+        <div class="span8">
+          <?php the_breadcrumb(); ?>
+        </div>
+      </div>
 <!-- Featured Image & Title -->
     <div class="row-fluid">
-      <div class="span9">
+      <div class="span8">
 
       <div id="myCarousel" class="carousel slide">
             <!-- Carousel items -->
@@ -130,9 +125,9 @@
             );
             foreach( $gallery as $image ) {
                 echo '<div class="item">';
-                 echo '<a href="' . wp_get_attachment_url($image->ID) . '" rel="gallery-' . get_the_ID() . '">';
+               
                  echo wp_get_attachment_image($image->ID, 'full', false, $attr);
-                 echo '</a>';
+              
                 echo '</div>';
             }
             ?>
@@ -154,7 +149,7 @@
 
 <!-- Belangrijkste eigenschappen -->
     <div class="row-fluid">
-      <div class="span9 yellow imp-elements">
+      <div class="span8 yellow imp-elements">
         <div class="row-fluid">
           <?php if($property['kamers']): ?>
             <div class="span3">
@@ -180,30 +175,15 @@
       </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('.plattegrond').fancybox({
-              width: '95%',
-              height: '95%',
-              autoSize: true
-              });
-        });
-    </script>
-
-      <script>
-        $(document).ready(function() {
-            $('.gallery').fancybox({
-              });
-        });
-    </script>
 
 
 <!-- Introductietekst -->
     <div class="row-fluid">
-      <div class="span9">
-        <div class=""><p><?php echo $property['introductietext']; ?></p></div>
+      <div class="span8">
+        <div class=""><p class="intro"><?php echo $property['introductietext']; ?></p></div>
+
         <!-- Links floorplanner ed -->
-        <div class="row-fluid">
+        <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span4">
             <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
@@ -211,7 +191,7 @@
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span4">
-            <a href="" class="btn btn-large btn-primary btn-block">Brochure downloaden</a>
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
@@ -221,9 +201,27 @@
           <?php endif; ?>
         </div>
 
+        <script>
+        $(document).ready(function() {
+            $('.plattegrond').fancybox({
+              width: '95%',
+              height: '95%',
+              autoSize: true
+              });
+        });
+    </script>
+
+        <hr>
+
 <!-- Aanvullende teksten -->
         <div class="row-fluid">
           <div class="span12">
+            <a href="#overige-teksten" id="overige-teksten-link">Lees de volledige omschrijving</a>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12" id="overige-teksten">
            <?php if($property['begane_grond_text']): ?>
               <h4>Begane grond</h4>
               <p><?php echo $property['begane_grond_text']; ?></p>
@@ -256,41 +254,19 @@
       </div>
  
 <!-- -->
-        <div class="span3">
-          <?php if ( empty($wp_properties['property_groups']) || $wp_properties['configuration']['property_overview']['sort_stats_by_groups'] != 'true' ) : ?>
-            <ul id="property_stats" class="">
-              <?php if(!empty($post->display_address)): ?>
-              <li class="">
-                <span class="attribute"><?php 
-                
-                echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
-                <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
-              </li>
-              <?php endif; ?>
-              <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
-            </ul>
-          <?php else: ?>
-            <?php if(!empty($post->display_address)): ?>
-            <ul id="property_stats" class="<?php wpp_css('property::property_stats', "property_stats overview_stats list"); ?>">
-              <li class="wpp_stat_plain_list_location alt">
-                <span class="attribute"><?php echo $wp_properties['property_stats'][$wp_properties['configuration']['address_attribute']]; ?><span class="wpp_colon">:</span></span>
-                <span class="value"><?php echo $post->display_address; ?>&nbsp;</span>
-              </li>
-            </ul>
-            <?php endif; ?>
-            <?php @draw_stats("display=list&make_link=true&exclude={$wp_properties['configuration']['address_attribute']}"); ?>
-          <?php endif; ?>
+        <div class="span4">
+         
       </div>
     </div>
+  </div><!-- End container for full width map -->
+</div>
+</div>
 
-    <div class="row-fluid">
-      <div class="span12">
         <?php if(WPP_F::get_coordinates()): ?>
-          <div id="property_map" class="<?php wpp_css('property::property_map'); ?>" style="width:100%; height:450px"></div>
+          <div id="property_map" class="<?php wpp_css('property::property_map'); ?>" style="width:100%; height:500px"></div>
         <?php endif; ?>
-      </div>
-    </div>
 
+  <div class="container">
     <div class="row-fluid">
         <?php if(class_exists('WPP_Inquiry')): ?>
           <h2><?php _e('Interested?','wpp') ?></h2>
