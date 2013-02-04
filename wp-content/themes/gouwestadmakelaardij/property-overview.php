@@ -47,12 +47,12 @@
                             <div class="<?php wpp_css('property_overview::right_column', "wpp_overview_right_column"); ?>">
 
                                 <ul class="<?php wpp_css('property_overview::data', "wpp_overview_data"); ?>">
-                                    <li class="property_title">
+                                    <h4 class="property_title">
                                         <a <?php echo $in_new_window; ?> href="<?php echo $property['permalink']; ?>"><?php echo $property['post_title']; ?></a>
                                         <?php if($property['is_child']): ?>
                                             of <a <?php echo $in_new_window; ?> href='<?php echo $property['parent_link']; ?>'><?php echo $property['parent_title']; ?></a>
                                         <?php endif; ?>
-                                    </li>
+                                    </h4>
 
                                 <?php if($property['custom_attribute_overview'] || $property['tagline']): ?>
                                     <li class="property_tagline">
@@ -66,10 +66,6 @@
 
                                 <?php if($property['phone_number']): ?>
                                     <li class="property_phone_number"><?php echo $property['phone_number']; ?></li>
-                                <?php endif; ?>
-
-                                <?php if($property['display_address']): ?>
-                                    <li class="property_address"><a href="<?php echo $property['permalink']; ?>#property_map"><?php echo $property['display_address']; ?></a></li>
                                 <?php endif; ?>
 
                                 <?php if($property['price']): ?>

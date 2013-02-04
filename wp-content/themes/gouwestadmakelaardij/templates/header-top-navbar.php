@@ -27,8 +27,11 @@
         <div class="row-fluid clearfix">
           <div class="span6">
             <h1>De makelaar voor Waddinxveen en omstreken</h1>
-            <a href="#" class="btn btn-large btn-primary btn-block" id="zoekform-link">Bekijk ons woningaanbod</a>
-            <div class="zoekformulier" id="zoekformulier">
+              <a href="#" class="btn btn-large btn-primary btn-block" id="zoekform-link">Doorzoek ons woningaanbod</a>
+          </div>
+          <div class="span6 zoekformulier" id="zoekformulier">
+            <div class="well">
+              <h5>Snel zoeken</h5>
               <?php echo do_shortcode("[property_search per_page=10]"); ?>
             </div>
           </div>

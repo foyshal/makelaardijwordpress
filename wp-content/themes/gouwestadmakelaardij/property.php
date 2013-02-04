@@ -43,6 +43,15 @@
     var infowindow;
 
     jQuery(document).ready(function() {
+       if(typeof jQuery.fn.fancybox == 'function') {
+        jQuery("a.fancybox_image, .gallery-item a").fancybox({
+          'transitionIn'  :  'elastic',
+          'transitionOut'  :  'elastic',
+          'speedIn'    :  600,
+          'speedOut'    :  200,
+          'overlayShow'  :  false
+        });
+      }
 
 
       if(typeof google == 'object') {
@@ -117,7 +126,7 @@
             );
             $gallery = get_children( $argsgallery );
             $attr = array(
-                'class' => "attachment-$size wp-post-image",
+                'class' => "attachment-$size wp-post-image gallery",
             );
             foreach( $gallery as $image ) {
                 echo '<div class="item">';
@@ -135,7 +144,7 @@
         </div>
 
       <div class="span3">
-         <h1 class="page-header"><?php the_title(); ?></h1>
+         <h1 class="page-header prop-title"><?php the_title(); ?></h1>
           <hp><?php the_tagline(); ?></hp>
           <?php if($property['price']): ?>
                 <h2 class="property_price"><?php echo $property['price']; ?></h2>
@@ -145,7 +154,7 @@
 
 <!-- Belangrijkste eigenschappen -->
     <div class="row-fluid">
-      <div class="span9">
+      <div class="span9 yellow imp-elements">
         <div class="row-fluid">
           <?php if($property['kamers']): ?>
             <div class="span3">
@@ -181,6 +190,13 @@
         });
     </script>
 
+      <script>
+        $(document).ready(function() {
+            $('.gallery').fancybox({
+              });
+        });
+    </script>
+
 
 <!-- Introductietekst -->
     <div class="row-fluid">
@@ -188,15 +204,21 @@
         <div class=""><p><?php echo $property['introductietext']; ?></p></div>
         <!-- Links floorplanner ed -->
         <div class="row-fluid">
+          <?php if($property['floorplanner']): ?>
           <div class="span4">
             <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
+          <?php endif; ?>
+          <?php if($property['brochure']): ?>
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Brochure downloaden</a>
           </div>
+          <?php endif; ?>
+          <?php if($property['woonfilm']): ?>
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
           </div>
+          <?php endif; ?>
         </div>
 
 <!-- Aanvullende teksten -->
