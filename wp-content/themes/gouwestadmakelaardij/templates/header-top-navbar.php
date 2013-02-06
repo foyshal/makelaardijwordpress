@@ -1,4 +1,4 @@
-<div class="navbar container">
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -27,7 +27,7 @@
         <div class="row-fluid clearfix">
           <div class="span6">
             <h1>De makelaar voor Waddinxveen en omstreken</h1>
-              <a href="#" class="btn btn-large btn-primary btn-block" id="zoekform-link">Doorzoek ons woningaanbod</a>
+              <a href="#" class="btn btn-large btn-primary btn-block" id="zoekform-link"><i class="icon-search"></i> Doorzoek ons woningaanbod </a>
           </div>
           <div class="span6 zoekformulier" id="zoekformulier">
             <div class="well">

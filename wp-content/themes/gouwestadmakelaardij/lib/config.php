@@ -61,7 +61,7 @@ function roots_sidebar_class() {
 }
 
 // Configuration values
-define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y
+define('GOOGLE_ANALYTICS_ID', 'UA-11523527-1'); // UA-XXXXX-Y
 define('POST_EXCERPT_LENGTH', 40);
 
 /**

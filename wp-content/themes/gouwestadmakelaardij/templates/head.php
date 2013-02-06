@@ -33,8 +33,8 @@
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
   <?php endif; ?>
 
-  <link rel="stylesheet/less" href="<?php echo get_template_directory_uri(); ?>/assets/css/less/style.less">
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/libs/less-1.3.0.min.js"></script>
+  <!--<link rel="stylesheet/less" href="<?php echo get_template_directory_uri(); ?>/assets/css/less/style.less">
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/libs/less-1.3.0.min.js"></script>-->
 
     <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>

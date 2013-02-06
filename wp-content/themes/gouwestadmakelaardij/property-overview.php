@@ -43,13 +43,13 @@
                             </div>
                             <ul class="elements">
                                 <?php if($property['gbo']): ?>
-                                      <li><i class="icon-glass"></i> <?php echo $property['gbo']; ?> m<sup>2</sup></li>
+                                      <li><i class="icon-exchange"></i> <?php echo $property['gbo']; ?> m<sup>2</sup></li>
                                   <?php endif; ?>
                                   <?php if($property['inhoud']): ?>
-                                      <li><i class="icon-glass"></i> <?php echo $property['inhoud']; ?> m<sup>3</sup></li>
+                                      <li><i class="icon-home"></i> <?php echo $property['inhoud']; ?> m<sup>3</sup></li>
                                   <?php endif; ?>
                                   <?php if($property['kamers']): ?>
-                                      <li><i class="icon-glass"></i> <?php echo $property['kamers']; ?></li>
+                                      <li><i class="icon-group"></i> <?php echo $property['kamers']; ?></li>
                                   <?php endif; ?>
                             </ul>
                         </div>
@@ -62,9 +62,21 @@
                                         <a <?php echo $in_new_window; ?> href="<?php echo $property['permalink']; ?>"><?php echo $property['post_title']; ?></a>
                                         <?php if($property['is_child']): ?>
                                             of <a <?php echo $in_new_window; ?> href='<?php echo $property['parent_link']; ?>'><?php echo $property['parent_title']; ?></a>
-                                        <?php endif; ?></small>
+                                        <?php endif; ?> | </small>
                                         <span class="property_price">
-                                            <?php echo $property['price']; ?>,-
+                                            <?php 
+                                            $huurstring = strip_tags($property["huren"]);
+                                            if($huurstring == true){
+                                              echo $property['huurprijs'];
+                                              echo ",-";
+                                              echo "<small> p mnd</small>";
+                                            }
+                                              else{
+                                                echo $property['price'];
+                                                echo ",-";
+                                              }
+                                            ?>
+
                                             <small> <?php 
                                             $pricetypestring = strip_tags($property["kosten_koper"]);
                                               if ($pricetypestring == "Costs_buyer"){
@@ -99,7 +111,7 @@
                                 <?php endif; ?>
 
                                 <div class="align-right">
-                                    <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary">bekijk woning</a>
+                                    <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary btn-small">bekijk woning  <i class="icon-circle-arrow-right"></i></a>
                                 </div>
 
                                 <?php if($show_children && $property['children']): ?>

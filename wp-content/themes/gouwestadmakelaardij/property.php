@@ -90,7 +90,7 @@
 
 
 
-  <div id="container" class="container">
+  <div id="container" class="container fullwidth-mobile">
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -138,12 +138,47 @@
           </div>
         </div>
 
-      <div class="span3">
-         <h1 class="page-header prop-title"><?php the_title(); ?></h1>
-          <hp><?php the_tagline(); ?></hp>
-          <?php if($property['price']): ?>
-                <h2 class="property_price">
-                <?php echo $property['price']; ?>,-
+      <div class="span3 woningnaam">
+        <span class="label">
+                   <?php $beschikbaarheidstring = strip_tags($property["status"]);
+
+          if ($beschikbaarheidstring == "Available"){
+          echo "Beschikbaar";
+          }
+          elseif ($beschikbaarheidstring == "Sold_under_conditions"){
+          echo "Verkocht onder voorbehoud";
+          } 
+          elseif ($beschikbaarheidstring == "Rented_under_conditions"){
+          echo "Verhuurd onder voorbehoud";
+          } 
+          elseif ($beschikbaarheidstring == "Sold"){
+          echo "Verkocht";
+          } 
+          elseif ($beschikbaarheidstring == "Rented"){
+          echo "Verhuurd";
+          }   
+          else{
+          echo "Niet beschikbaar";
+          }?>
+        </span>
+        <div class="content">
+           <h1 class="page-header prop-title"><?php the_title(); ?></h1>
+            <hp><?php the_tagline(); ?></hp>
+            <?php if($property['price']): ?>
+                  <h2 class="property_price">
+                  <?php 
+                    $huurstring = strip_tags($property["huren"]);
+                    if($huurstring == true){
+                      echo $property['huurprijs'];
+                      echo ",-";
+                      echo "<small>p mnd</small>";
+                    }
+                      else{
+                        echo $property['price'];
+                        echo ",-";
+                      }
+                    ?>
+
                     <small> <?php 
                     $pricetypestring = strip_tags($property["kosten_koper"]);
                       if ($pricetypestring == "Costs_buyer"){
@@ -154,33 +189,38 @@
                       } 
             
                     ?>
-                </small></h2>
-        <?php endif; ?>
+                  </small></h2>
+
+
+          <?php endif; ?>
+        </div>
       </div>
     </div>
+  </div>
 
+  <div class="container">
 <!-- Belangrijkste eigenschappen -->
     <div class="row-fluid">
       <div class="span8 yellow imp-elements">
         <div class="row-fluid">
           <?php if($property['kamers']): ?>
             <div class="span3">
-              <p><i class="icon-glass"></i>Aantal kamers: <?php echo $property['kamers']; ?></p>
+              <p><i class="icon-group"></i> Aantal kamers: <?php echo $property['kamers']; ?></p>
             </div>
           <?php endif; ?>
           <?php if($property['gbo']): ?>
             <div class="span3">
-              <p><i class="icon-glass"></i> GBO: <?php echo $property['gbo']; ?> m<sup>2</sup></p>
+              <p><i class="icon-exchange"></i> GBO: <?php echo $property['gbo']; ?> m<sup>2</sup></p>
             </div>
           <?php endif; ?>
           <?php if($property['inhoud']): ?>
             <div class="span3">
-              <p><i class="icon-glass"></i>Inhoud: <?php echo $property['inhoud']; ?> m<sup>3</sup></p>
+              <p><i class="icon-home"></i> Inhoud: <?php echo $property['inhoud']; ?> m<sup>3</sup></p>
             </div> 
           <?php endif; ?>
           <?php if($property['perceel']): ?>
             <div class="span3">
-              <p><i class="icon-glass"></i> Perceel: <?php echo $property['perceel']; ?> m<sup>2</sup></p>
+              <p><i class="icon-leaf"></i> Perceel: <?php echo $property['perceel']; ?> m<sup>2</sup></p>
             </div>
           <?php endif; ?>
         </div>
@@ -270,21 +310,256 @@
       </div>
  
 <!-- Strings met vertaling..-->
-        <div class="span4">
 
+        <div class="span4 woningzijbalk">
 
-          <h6>Verwarming:</h6>
-          <?php $verwarmingstring = strip_tags($property["verwarming"]);
+          <div class="makelaar">
+            <p><strong>Makelaar:</strong> <?php echo $property['makelaar']; ?></p>
+          </div>
 
-              if ($verwarmingstring == "Central_heating"){
-                echo "CV Ketel";
-              }
-                elseif ($verwarmingstring == "Coal"){
-                  echo "Oude kutkachel";
-              } 
-              else{
-                echo "WTF";
-          }?>
+          <?php if($property['datum_open_huis']): ?>
+            <div class="openhuis">
+              <h5>open Huis:</h5>
+              <p><?php echo $property['datum_open_huis']; ?></p>
+              <p><?php echo $property['informatie_open_huis']; ?></p>
+            </div>
+          <?php endif; ?>
+
+          <div class="dewoning">
+            <h5>De woning</h5>
+            <ul class="unstyled">
+            <li><?php $typewoningstring = strip_tags($property["type"]);
+
+            if ($typewoningstring == "Detached_house"){
+            echo "Vrijstaande woning";
+            }
+            elseif ($typewoningstring == "Linked_house"){
+            echo "Geschakelde woning";
+            } 
+            elseif ($typewoningstring == "Semi_detached_house_one_roof"){
+            echo "Twee-onder-een kapwoning";
+            } 
+            elseif ($typewoningstring == "Row_house_middle"){
+            echo "Tussenwoning";
+            } 
+            elseif ($typewoningstring == "Row_house_corner"){
+            echo "Hoekwoning";
+            } 
+            elseif ($typewoningstring == "Row_house_end"){
+            echo "Eindwoning";
+            } 
+            elseif ($typewoningstring == "Semi_detached_house"){
+            echo "Half vrijstaande woning";
+            } 
+            elseif ($typewoningstring == "Semi_detached_linked_house_one_roof"){
+            echo "Geschakelde twee-onder-een kapwoning";
+            } 
+            elseif ($typewoningstring == "Serviceflat"){
+            echo "Serviceflat";
+            } 
+            elseif ($typewoningstring == "Common_apartment"){
+            echo "Appartement";
+            } 
+            elseif ($typewoningstring == "Corridor_flat"){
+            echo "Corridorflat";
+            } 
+            elseif ($typewoningstring == "Beletage"){
+            echo "Beletage";
+            } 
+            elseif ($typewoningstring == "Basement"){
+            echo "Souterrain";
+            } 
+            elseif ($typewoningstring == "Double_upper_house"){
+            echo "Dubbelbovenhuis";
+            } 
+            elseif ($typewoningstring == "Nursery_flat"){
+            echo "Verzorgingsflat";
+            } 
+            else{
+            echo "";
+            }?>
+           
+            | <?php $soortwoningstring = strip_tags($property["soort"]);
+
+            if ($soortwoningstring == "Single_family_house"){
+            echo "Eengezinswoning";
+            }
+            elseif ($soortwoningstring == "Mansion"){
+            echo "Herenhuis";
+            } 
+            elseif ($soortwoningstring == "Villa"){
+            echo "Villa";
+            } 
+            elseif ($soortwoningstring == "Country_house"){
+            echo "Landhuis";
+            } 
+            elseif ($soortwoningstring == "Bungalow"){
+            echo "Bungalow";
+            } 
+            elseif ($soortwoningstring == "Residental_farm"){
+            echo "Woonboerderij";
+            } 
+            elseif ($soortwoningstring == "Canal_house"){
+            echo "Grachtenpand";
+            } 
+            elseif ($soortwoningstring == "Houseboat"){
+            echo "Woonboot";
+            } 
+            elseif ($soortwoningstring == "Mobile_home"){
+            echo "Stacaravan";
+            }  
+            elseif ($soortwoningstring == "Upstairs_apartment"){
+            echo "Bovenwoning";
+            } 
+            elseif ($soortwoningstring == "Ground_floor_apartment"){
+            echo "Benedenwoning";
+            } 
+            elseif ($soortwoningstring == "Maisonette"){
+            echo "Maisonette";
+            } 
+            elseif ($soortwoningstring == "Gallery_flat"){
+            echo "Gallerijflat";
+            } 
+            elseif ($soortwoningstring == "Portico_flat"){
+            echo "Portiekflat";
+            } 
+            elseif ($soortwoningstring == "Upstairs_ground_floor_apartment"){
+            echo "Benedenbovenwoning";
+            } 
+            elseif ($soortwoningstring == "Penthouse"){
+            echo "Penthouse";
+            } 
+            elseif ($soortwoningstring == "Porch_apartment"){
+            echo "Portiekwoning";
+            } 
+            elseif ($soortwoningstring == "Garage"){
+            echo "Garagebox";
+            } 
+            elseif ($soortwoningstring == "Indoor_garage"){
+            echo "Inpandige garage";
+            } 
+            elseif ($soortwoningstring == "Parking_cellar"){
+            echo "Parkeerkelder";
+            } 
+            elseif ($soortwoningstring == "Parking_place"){
+            echo "Parkeerplaats";
+            } 
+            else{
+            echo "";
+            }?></li>
+
+          <?php if($property['bouwjaar']): ?>
+            <li>Bouwjaar: <?php echo $property['bouwjaar']; ?></li>
+          <?php endif; ?>
+          <?php if($property['verdiepingen']): ?>
+          <li>Woonlagen: <?php echo $property['verdiepingen']; ?></li>
+          <?php endif; ?>
+          <?php if($property['Bedrooms']): ?>
+          <li>Slaapkamers: <?php echo $property['Bedrooms']; ?></li>
+          <?php endif; ?>
+          <?php if($property['Bathrooms']): ?>
+            <li>Badkamers: <?php echo $property['Bathrooms']; ?></li>
+          <?php endif; ?>
+          <?php if($property['tuin']): ?>
+            <li>Tuinligging: <?php $tuinliggingstring = strip_tags($property["tuin"]);
+          if ($tuinliggingstring == "North"){
+          echo "Noord";
+          }
+          elseif ($tuinliggingstring == "North_east"){
+          echo "Noord Oost";
+          } 
+          elseif ($tuinliggingstring == "East"){
+          echo "Oost";
+          } 
+          elseif ($tuinliggingstring == "South_west"){
+          echo "Zuid West";
+          } 
+          elseif ($tuinliggingstring == "North_west"){
+          echo "Noord West";
+          } 
+          elseif ($tuinliggingstring == "West"){
+          echo "West";
+          } 
+          elseif ($tuinliggingstring == "South"){
+          echo "Zuid";
+          } 
+          elseif ($tuinliggingstring == "South_east"){
+          echo "Zuid Oost";
+          }   
+          else{
+          echo "";
+          }?></li>
+          <?php endif; ?>
+        </ul>
+
+          <h5>Energie</h5>
+          <p>Verwarming: <?php $verwarmingstring = strip_tags($property["verwarming"]);
+
+            if ($verwarmingstring == "Central_heating"){
+            echo "CV Ketel";
+            }
+            elseif ($verwarmingstring == "Coal"){
+            echo "Kolenkachel";
+            } 
+            elseif ($verwarmingstring == "Heating_block"){
+            echo "Blokverwarming";
+            } 
+            elseif ($verwarmingstring == "District_heating"){
+            echo "Stadverwarming";
+            } 
+            elseif ($verwarmingstring == "Central_fireplace"){
+            echo "Moederhaard";
+            } 
+            elseif ($verwarmingstring == "Hot_air"){
+            echo "Heteluchtverwarming";
+            } 
+            elseif ($verwarmingstring == "Airco"){
+            echo "Airconditioning";
+            } 
+            elseif ($verwarmingstring == "Gas_stove"){
+            echo "Gaskachels";
+            } 
+            elseif ($verwarmingstring == "Fireplace"){
+            echo "Openhaard";
+            } 
+            elseif ($verwarmingstring == "Option_for_fireplace"){
+            echo "Mogelijkheid tot openhaard";
+            } 
+            elseif ($verwarmingstring == "Floor_heating"){
+            echo "Vloerverwarming";
+            } 
+            elseif ($verwarmingstring == "Floor_heating_partly"){
+            echo "Vloerverwarming gedeeltelijk";
+            } 
+            elseif ($verwarmingstring == "Solar_collectors"){
+            echo "Zonnecollectoren";
+            } 
+            elseif ($verwarmingstring == "Electric_heating"){
+            echo "Elektrische verwarming";
+            } 
+            elseif ($verwarmingstring == "Wall_heating"){
+            echo "Muurverwarming";
+            }  
+            else{
+            echo "Geen verwarmingsgegevens beschikbaar";
+            }?></p>
+           <p><?php echo $property['energielabel']; ?></p>
+
+           <h5>NEN 2580</h5>
+           <ul class="unstyled nen"</ul>
+           <?php if($property['gbo']): ?>
+            <li>Woonoppervlakte: <?php echo $property['gbo']; ?> m<sup>2</sup></li>
+           <?php endif; ?>
+           <?php if($property['opp_overige_inpandige_ruimten']): ?>
+           <li>Ovg. inpandige ruimte :<?php echo $property['opp_overige_inpandige_ruimten']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+            <?php if($property['opp_externe_bergruimten']): ?>
+           <li>Externe bergruimte: <?php echo $property['opp_externe_bergruimten']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+            <?php if($property['opp_gebouwgebonden_buitenruimten']): ?>
+           <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+            </ul
 
       </div>
     </div>

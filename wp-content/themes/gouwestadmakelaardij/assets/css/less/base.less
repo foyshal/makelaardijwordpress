@@ -407,10 +407,27 @@ nav.main{
    }
   }
 
-//Special class to remove margin on container & row on mobile
+  .navbar .brand{
+    max-width: 200px;
+    padding: 0;
+    margin: 0 0 ;
+  }
+
+  .carousel-control{
+    margin-left: -10px;
+    top: 101% !important;
+    &.right{
+      right: 5px;
+    }
+  }
+
+//Special class to remove margin on container & row on mobile & add to content
   .fullwidth-mobile{
     padding-left: 0 !important;
     padding-right: 0 !important;
+    .content{
+      padding: 0 20px;
+    }
   }
 
 //smaller table font-sizes to fit screens
