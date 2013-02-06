@@ -64,7 +64,18 @@
                                             of <a <?php echo $in_new_window; ?> href='<?php echo $property['parent_link']; ?>'><?php echo $property['parent_title']; ?></a>
                                         <?php endif; ?></small>
                                         <span class="property_price">
-                                            <?php echo $property['price']; ?>
+                                            <?php echo $property['price']; ?>,-
+                                            <small> <?php 
+                                            $pricetypestring = strip_tags($property["kosten_koper"]);
+                                              if ($pricetypestring == "Costs_buyer"){
+                                                echo "K.K.";
+                                              }
+                                                elseif ($pricetypestring == 'Free_on_name'){
+                                                  echo 'V.O.N.';
+                                              } 
+                                    
+                                            ?>
+                                        </small>
                                         </span>
                                     </h4>
 
@@ -80,10 +91,16 @@
 
 
                                 <?php if($property['introductietext']): ?>
-                                    <li><?php echo $little_content = substr($property['introductietext'],0,110); ?> ...</li>
+                                    <li class="korte-tekst"><?php
+                                     $little_content = substr($property['introductietext'],0,110); 
+                                     $string = strip_tags($little_content);
+                                    echo $string ;
+                                     ?> ...</li>
                                 <?php endif; ?>
 
-                                <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary right">bekijk woning</a>
+                                <div class="align-right">
+                                    <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary">bekijk woning</a>
+                                </div>
 
                                 <?php if($show_children && $property['children']): ?>
                                 <li class="child_properties">

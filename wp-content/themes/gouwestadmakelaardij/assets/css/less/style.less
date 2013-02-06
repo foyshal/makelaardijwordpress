@@ -646,6 +646,9 @@ section.pagination{
   .btn.right{
     float: right;
   }
+  .korte-tekst{
+    margin-bottom: 20px;
+  }
 }
 
 .property_title a{
@@ -658,6 +661,10 @@ section.pagination{
   li{
     display: inline;
   }
+}
+
+.wpp_search_group{
+  margin-left: 0;
 }
 
 .wpp_search_elements{
@@ -678,6 +685,10 @@ section.pagination{
 .property_price{
   text-align: right;
   float: right;
+}
+
+.align-right{
+  text-align: right;
 }
 
 /* ==========================================================================
@@ -714,4 +725,158 @@ section.pagination{
 #overige-teksten{
   display: none;
 }
+
+.wpp_google_maps_right_col{
+  .wpp_google_maps_infobox{
+    list-style: none;
+  }
+}
+
+.wpp_google_maps_left_col{
+  .btn-info{
+    font-size: 0.6em;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* WPP Sorter and Pagination Begin {*/
+
+.wpp_pagination_slider_wrapper .wpp_pagination_back,
+.wpp_pagination_slider_wrapper .wpp_pagination_forward {
+  width: 8%;
+  height: 16px;
+  border-radius: 5px 5px 5px 5px;
+  text-align: center;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.wpp_sorter_options {
+  float: right;
+}
+
+.properties_pagination.wpp_top_pagination,
+.properties_pagination.wpp_bottom_pagination {
+  margin-bottom: 1em;
+}
+
+.wpp_sorter_options .wpp_sortable_link.wpp_sorted_element {
+  background: none repeat scroll 0 0 #D36E09;
+  color: #1C1711;
+}
+
+.wpp_sorter_options .wpp_sortable_link {
+  background: none repeat scroll 0 0 #2F2F2F;
+  border-radius: 6px 6px 6px 6px;
+  color: #CCCCCC;
+  cursor: pointer;
+  margin-left: 6px;
+  padding: 1px 4px;
+}
+
+.wpp_ui .wpp_pagination_slider_wrapper .wpp_pagination_forward {
+  float: right;
+}
+.wpp_pagination_slider_wrapper .wpp_pagination_back {
+  float: left;
+}
+
+.wpp_ui .wpp_pagination_slider.ui-slider-horizontal {
+  background: none repeat scroll 0 0 #DDDDDD;
+  border: 1px solid #ccc;
+  height: 12px;
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.wpp_pagination_slider_status {
+  min-height: 35px;
+}
+
+.wpp_pagination_slider .slider_page_info {
+  height: 15px;
+  position: absolute;
+  top: -31px;
+  left: -3px;
+  display:none;
+}
+.wpp_pagination_slider .slider_page_info {}
+
+.wpp_property_overview_shortcode, .wpp_slider_pagination {
+  position: relative;
+}
+
+.wpp_property_overview_shortcode .ajax_loader {
+  position:absolute;
+  z-index:10;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 0 -40px;
+  border: 1px solid #606060;
+  background: #DDDDDD url("images/ajax-loader-po.gif") center center no-repeat;
+  top: 100px;
+  left: 50%;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  display:none;
+}
+
+.wpp_ui .wpp_pagination_slider.ui-slider-horizontal .ui-slider-handle {
+  border: 1px solid #848484;
+  box-shadow: 0 0 2px lightgrey;
+  -moz-box-shadow: 0 0 2px lightgrey;
+  -webkit-box-shadow: 0 0 2px lightgrey;
+  height: 18px;
+  width: 18px;
+  margin-left: -8px;
+  top: -4px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  background-color: #bbb;
+  background-image: none;
+}
+
+.wpp_ui .wpp_pagination_slider.wpp_slider_loading .ui-slider-handle {
+  background-image: url("images/ajax-loader-sm.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.wpp_pagination_back, .wpp_pagination_forward{
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    padding: 20px;
+    color: @linkColor;
+}
+
+.wpp_pagination_back:hover, .wpp_pagination_forward:hover{
+  background: #f5f5f5;
+  color: #005580;
+}
+
+.wpp_sorter_options .wpp_sortable_link {
+  padding: 12px;
+  font-size: 0.5em;
+  color: #fff;
+  background: #fcaf17;
+}
+
+.properties_pagination.wpp_top_pagination, .properties_pagination.wpp_bottom_pagination {
+    margin-bottom: 5em;
+}
+
+/* WPP Sorter and Pagination End} */
 

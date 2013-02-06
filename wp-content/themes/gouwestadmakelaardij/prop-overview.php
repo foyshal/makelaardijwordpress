@@ -14,7 +14,9 @@ Template Name: Property overview
     </div>
                       <?php if (roots_display_sidebar()) : ?>
                   <div class="sidebar span3" role="complementary">
-                    <?php include roots_sidebar_path(); ?>
+                    <div class="well">
+                      <?php include roots_sidebar_path(); ?>
+                    </div>
                   </div><!-- /.sidebar -->
                <?php endif; ?>
   </div>

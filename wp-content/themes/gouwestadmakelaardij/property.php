@@ -142,8 +142,20 @@
          <h1 class="page-header prop-title"><?php the_title(); ?></h1>
           <hp><?php the_tagline(); ?></hp>
           <?php if($property['price']): ?>
-                <h2 class="property_price"><?php echo $property['price']; ?></h2>
-          <?php endif; ?>
+                <h2 class="property_price">
+                <?php echo $property['price']; ?>,-
+                    <small> <?php 
+                    $pricetypestring = strip_tags($property["kosten_koper"]);
+                      if ($pricetypestring == "Costs_buyer"){
+                        echo "K.K.";
+                      }
+                        elseif ($pricetypestring == 'Free_on_name'){
+                          echo 'V.O.N.';
+                      } 
+            
+                    ?>
+                </small></h2>
+        <?php endif; ?>
       </div>
     </div>
 
@@ -198,18 +210,21 @@
           <div class="span4">
             <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
           </div>
+
+
           <?php endif; ?>
+
         </div>
 
-        <script>
-        $(document).ready(function() {
-            $('.plattegrond').fancybox({
-              width: '95%',
-              height: '95%',
-              autoSize: true
+              <script>
+              $(document).ready(function() {
+                  $('.plattegrond').fancybox({
+                    width: '95%',
+                    height: '95%',
+                    autoSize: true
+                    });
               });
-        });
-    </script>
+            </script>
 
         <hr>
 
@@ -217,6 +232,7 @@
         <div class="row-fluid">
           <div class="span12">
             <a href="#overige-teksten" id="overige-teksten-link">Lees de volledige omschrijving</a>
+            <hr>
           </div>
         </div>
 
@@ -253,9 +269,23 @@
         </div>
       </div>
  
-<!-- -->
+<!-- Strings met vertaling..-->
         <div class="span4">
-         
+
+
+          <h6>Verwarming:</h6>
+          <?php $verwarmingstring = strip_tags($property["verwarming"]);
+
+              if ($verwarmingstring == "Central_heating"){
+                echo "CV Ketel";
+              }
+                elseif ($verwarmingstring == "Coal"){
+                  echo "Oude kutkachel";
+              } 
+              else{
+                echo "WTF";
+          }?>
+
       </div>
     </div>
   </div><!-- End container for full width map -->
