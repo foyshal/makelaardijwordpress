@@ -1,3 +1,12 @@
+<div class="cookie-warning">
+        <div class="alert alert-block alert-error">
+          <button type="button" class="close close-cookie" data-dismiss="alert">&times;</button>
+          Cookiegebruik: 
+          Om de gebruiksvriendelijkheid van deze site te verbeteren maken wij gebruik van cookies.
+          <button type="button" class="btn btn-danger closecookie" data-dismiss="alert">deze melding sluiten</button>
+        </div>
+</div>
+
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
