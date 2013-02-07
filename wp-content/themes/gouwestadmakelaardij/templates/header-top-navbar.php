@@ -1,3 +1,12 @@
+<div class="cookie-warning">
+        <div class="alert alert-block alert-error">
+          <button type="button" class="close close-cookie" data-dismiss="alert">&times;</button>
+          Cookiegebruik: 
+          Om de gebruiksvriendelijkheid van deze site te verbeteren maken wij gebruik van cookies.
+          <button type="button" class="btn btn-danger closecookie" data-dismiss="alert">deze melding sluiten</button>
+        </div>
+</div>
+
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
@@ -32,7 +41,7 @@
           <div class="span6 zoekformulier" id="zoekformulier">
             <div class="well">
               <h5>Snel zoeken</h5>
-              <?php echo do_shortcode("[property_search per_page=15]"); ?>
+              <?php echo do_shortcode("[property_search do_not_use_cache=true searchable_attributes=location,plaats,price per_page=15]"); ?>
             </div>
           </div>
         </div>

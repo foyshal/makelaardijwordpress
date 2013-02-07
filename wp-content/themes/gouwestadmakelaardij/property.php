@@ -88,7 +88,14 @@
 
   </script>
 
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=113978908731538";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <div id="container" class="container fullwidth-mobile">
     <div id="content" class="row-fluid" role="main">
@@ -163,36 +170,32 @@
         </span>
         <div class="content">
            <h1 class="page-header prop-title"><?php the_title(); ?></h1>
-            <hp><?php the_tagline(); ?></hp>
-            <?php if($property['price']): ?>
+            <h4><?php the_tagline(); ?></h4>
                   <h2 class="property_price">
                   <?php 
-                    $huurstring = strip_tags($property["huren"]);
-                    if($huurstring == true){
-                      echo $property['huurprijs'];
-                      echo ",-";
-                      echo "<small>p mnd</small>";
-                    }
-                      else{
-                        echo $property['price'];
+                      $huurstring = strip_tags($property["huren"]);
+                      if($huurstring == true){
+                        echo $property['huurprijs'];
                         echo ",-";
+                        echo "<small> p mnd</small>";
                       }
-                    ?>
-
-                    <small> <?php 
-                    $pricetypestring = strip_tags($property["kosten_koper"]);
-                      if ($pricetypestring == "Costs_buyer"){
-                        echo "K.K.";
-                      }
-                        elseif ($pricetypestring == 'Free_on_name'){
-                          echo 'V.O.N.';
-                      } 
-            
-                    ?>
+                        else{
+                          echo $property['price'];
+                          echo ",-";
+                        }
+                      ?>
+                      <small> <?php 
+                      $pricetypestring = strip_tags($property["kosten_koper"]);
+                        if ($pricetypestring == "Costs_buyer"){
+                          echo "K.K.";
+                        }
+                          elseif ($pricetypestring == 'Free_on_name'){
+                            echo 'V.O.N.';
+                        } 
+              
+                      ?>
                   </small></h2>
 
-
-          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -248,9 +251,8 @@
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span4">
-            <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Woonfilm bekijken</a>
           </div>
-
 
           <?php endif; ?>
 
@@ -547,7 +549,7 @@
            <p><?php echo $property['energielabel']; ?></p>
 
            <h5>NEN 2580</h5>
-           <ul class="unstyled nen"</ul>
+           <ul class="unstyled nen">
            <?php if($property['gbo']): ?>
             <li>Woonoppervlakte: <?php echo $property['gbo']; ?> m<sup>2</sup></li>
            <?php endif; ?>
@@ -560,12 +562,25 @@
             <?php if($property['opp_gebouwgebonden_buitenruimten']): ?>
            <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
-            </ul
+            </ul>
+
+            <h5>Deel deze woning</h5>
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            </div>
+
+            <h5>Volg ons op Facebook</h5>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5113734261bf6917"></script>
+            <!-- AddThis Button END -->
+<div class="fb-like" data-href="https://www.facebook.com/pages/Gouwestad-Makelaardij/176712525694328?fref=ts" data-send="false" data-width="100%" data-show-faces="true"></div>
+
           </div>
       </div>
     </div>
   </div><!-- End container for full width map -->
-</div>
 </div>
 
         <?php if(WPP_F::get_coordinates()): ?>

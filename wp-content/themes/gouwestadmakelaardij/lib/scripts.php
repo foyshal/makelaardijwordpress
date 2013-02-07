@@ -16,6 +16,7 @@
  */
 
 function roots_scripts() {
+  wp_register_script('roots_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
   wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/assets/css/less/style.css', false, null);
   wp_enqueue_style('roots_app', get_template_directory_uri() . '/assets/css/app.css', false, null);
 
@@ -37,7 +38,6 @@ function roots_scripts() {
   }
 
   wp_register_script('roots_plugins', get_template_directory_uri() . '/assets/js/plugins.js', false, null, false);
-  wp_register_script('roots_main', get_template_directory_uri() . '/assets/js/main.js', false, null, false);
   wp_enqueue_script('roots_plugins');
   wp_enqueue_script('roots_main');
 }

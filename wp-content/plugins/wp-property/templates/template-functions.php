@@ -487,7 +487,7 @@ if(!function_exists('wpi_draw_pagination')):
         document_ready = true;
         max_slider_pos = <?php echo ($pages ? $pages : 'null'); ?>;
         //** Do not assign click event again */
-        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_back').data('events') ) {
+        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_back').data('clickevent') ) {
           jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_back').click(function() {
             var current_value =  jQuery("#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_slider").slider("value");
             if(current_value == 1) { return; }
@@ -496,7 +496,7 @@ if(!function_exists('wpi_draw_pagination')):
             wpp_query_<?php echo $unique_hash; ?> = changeAddressValue(new_value, wpp_query_<?php echo $unique_hash; ?>);
           });
         }
-        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_forward').data('events') ) {
+        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_forward').data('clickevent') ) {
           jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_forward').click(function() {
             var current_value =  jQuery("#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_pagination_slider").slider("value");
             if(max_slider_pos && (current_value == max_slider_pos || max_slider_pos < 1 )) { return; }
@@ -505,7 +505,7 @@ if(!function_exists('wpi_draw_pagination')):
             wpp_query_<?php echo $unique_hash; ?> = changeAddressValue(new_value, wpp_query_<?php echo $unique_hash; ?>);
           });
         }
-        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_link').data('events') ) {
+        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_link').data('clickevent') ) {
           jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_link').click(function() {
             var attribute = jQuery(this).attr('sort_slug');
             var sort_order = jQuery(this).attr('sort_order');
@@ -528,7 +528,7 @@ if(!function_exists('wpi_draw_pagination')):
             wpp_query_<?php echo $unique_hash; ?> = changeAddressValue(1, wpp_query_<?php echo $unique_hash; ?>);
           });
         }
-        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_dropdown').data('events') ) {
+        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_dropdown').data('clickevent') ) {
           jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_sortable_dropdown').change(function() {
             var parent = jQuery(this).parents('.wpp_sorter_options');
             var attribute = jQuery(":selected", this).attr('sort_slug');
@@ -540,7 +540,7 @@ if(!function_exists('wpi_draw_pagination')):
             wpp_query_<?php echo $unique_hash; ?> = changeAddressValue(1, wpp_query_<?php echo $unique_hash; ?>);
           });
         }
-        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_overview_sorter').data('events') ) {
+        if(!jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_overview_sorter').data('clickevent') ) {
           jQuery('#wpp_shortcode_<?php echo $unique_hash; ?> .wpp_overview_sorter').click(function() {
             var parent = jQuery(this).parents('.wpp_sorter_options');
             var sort_element = this;

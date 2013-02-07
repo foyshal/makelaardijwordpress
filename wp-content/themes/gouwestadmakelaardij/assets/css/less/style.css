@@ -8957,6 +8957,9 @@ nav.main .thumbnails li .hover:hover {
 body {
   font-weight: lighter;
 }
+.cookie-warning {
+  font-size: 0.6em;
+}
 .zuidplashof-sub form {
   font-size: 65%;
 }

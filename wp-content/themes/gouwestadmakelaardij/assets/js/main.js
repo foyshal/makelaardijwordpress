@@ -2,6 +2,36 @@
  Gouwestad Marketing & Media
 */
 
+
+// Cookies When document is ready replaces the need for onload
+$(document).ready(function() {
+
+    // Grab your button (based on your posted html)
+    $('.close-cookie').click(function( e ){
+
+        // Do not perform default action when button is clicked
+        e.preventDefault();
+
+        /* If you just want the cookie for a session don't provide an expires
+         Set the path as root, so the cookie will be valid across the whole site */
+        $.cookie('alert-box', 'closed', { path: '/' });
+
+    });
+
+});
+
+$(document).ready(function() {
+
+    // Check if alert has been closed
+    if( $.cookie('alert-box') === 'closed' ){
+
+        $('.alert').hide();
+
+    }
+
+
+});
+
  /* Animation on doc ready
 -------------------------------------------------------------- */
 $(document).ready(function()
