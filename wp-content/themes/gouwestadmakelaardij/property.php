@@ -565,7 +565,7 @@
             <?php endif; ?>
             </ul>
 
-            <h5>Social Media</h5>
+            <h5>Deel deze woning</h5>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a>
