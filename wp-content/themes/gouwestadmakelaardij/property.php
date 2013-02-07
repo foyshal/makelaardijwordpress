@@ -561,6 +561,16 @@
            <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
             </ul>
+
+            <h5>Sociaal Media</h5>
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            </div>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5113734261bf6917"></script>
+            <!-- AddThis Button END -->
           </div>
       </div>
     </div>
