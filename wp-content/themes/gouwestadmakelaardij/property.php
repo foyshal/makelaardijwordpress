@@ -547,7 +547,7 @@
            <p><?php echo $property['energielabel']; ?></p>
 
            <h5>NEN 2580</h5>
-           <ul class="unstyled nen"</ul>
+           <ul class="unstyled nen">
            <?php if($property['gbo']): ?>
             <li>Woonoppervlakte: <?php echo $property['gbo']; ?> m<sup>2</sup></li>
            <?php endif; ?>
@@ -560,12 +560,11 @@
             <?php if($property['opp_gebouwgebonden_buitenruimten']): ?>
            <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
-            </ul
+            </ul>
           </div>
       </div>
     </div>
   </div><!-- End container for full width map -->
-</div>
 </div>
 
         <?php if(WPP_F::get_coordinates()): ?>
