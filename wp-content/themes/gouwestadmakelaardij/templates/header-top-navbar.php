@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="<?php echo home_url(); ?>/">
-        <img src="http://www.gouwestadmakelaardij.nl/images/logogouwestad.png" alt="logo"/>
+        <img src="http://www.gouwestadmakelaardij.nl/assets/img/logogouwestad.png" alt="logo"/>
       </a>
       <nav class="nav-collapse" role="navigation">
         <?php
@@ -32,7 +32,7 @@
           <div class="span6 zoekformulier" id="zoekformulier">
             <div class="well">
               <h5>Snel zoeken</h5>
-              <?php echo do_shortcode("[property_search per_page=10]"); ?>
+              <?php echo do_shortcode("[property_search per_page=15]"); ?>
             </div>
           </div>
         </div>

@@ -320,7 +320,7 @@
           <?php if($property['datum_open_huis']): ?>
             <div class="openhuis">
               <h5>open Huis:</h5>
-              <p><?php echo $property['datum_open_huis']; ?></p>
+             
               <p><?php echo $property['informatie_open_huis']; ?></p>
             </div>
           <?php endif; ?>
@@ -491,6 +491,7 @@
           }?></li>
           <?php endif; ?>
         </ul>
+      </div>
 
           <h5>Energie</h5>
           <p>Verwarming: <?php $verwarmingstring = strip_tags($property["verwarming"]);
@@ -560,7 +561,7 @@
            <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
             </ul
-
+          </div>
       </div>
     </div>
   </div><!-- End container for full width map -->
