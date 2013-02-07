@@ -88,7 +88,14 @@
 
   </script>
 
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=113978908731538";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <div id="container" class="container fullwidth-mobile">
     <div id="content" class="row-fluid" role="main">
@@ -562,7 +569,7 @@
             <?php endif; ?>
             </ul>
 
-            <h5>Sociaal Media</h5>
+            <h5>Social Media</h5>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a>
@@ -571,6 +578,8 @@
             </div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5113734261bf6917"></script>
             <!-- AddThis Button END -->
+<div class="fb-like" data-href="https://www.facebook.com/pages/Gouwestad-Makelaardij/176712525694328?fref=ts" data-send="false" data-width="450" data-show-faces="true" data-font="segoe ui"></div>
+
           </div>
       </div>
     </div>
