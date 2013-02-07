@@ -240,18 +240,21 @@
         <!-- Links floorplanner ed -->
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+          <div class="span3">
+            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Brochure</a>
+          <div class="span3">
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn btn-primary btn-block plattegrond">Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Woonfilm bekijken</a>
+          <div class="span3">
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn btn-primary btn-block plattegrond">Film</a>
+          </div>
+          <div class="span3">
+          <a href="/contact" class="btn btn-primary btn-block">Meer info</a>
           </div>
 
           <?php endif; ?>
