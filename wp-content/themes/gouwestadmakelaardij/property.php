@@ -52,7 +52,6 @@
 
     });
 
-
   function initialize_this_map() {
     <?php if($coords = WPP_F::get_coordinates()): ?>
     var myLatlng = new google.maps.LatLng(<?php echo $coords['latitude']; ?>,<?php echo $coords['longitude']; ?>);
@@ -60,6 +59,7 @@
       zoom: <?php echo (!empty($wp_properties['configuration']['gm_zoom_level']) ? $wp_properties['configuration']['gm_zoom_level'] : 13); ?>,
       center: myLatlng,
       scrollwheel: false,
+      draggable: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
