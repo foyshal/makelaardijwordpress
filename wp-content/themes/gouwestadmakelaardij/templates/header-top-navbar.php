@@ -32,7 +32,7 @@
           <div class="span6 zoekformulier" id="zoekformulier">
             <div class="well">
               <h5>Snel zoeken</h5>
-              <?php echo do_shortcode("[property_search per_page=15]"); ?>
+              <?php echo do_shortcode("[property_search do_not_use_cache=true searchable_attributes=location,plaats,price per_page=15]"); ?>
             </div>
           </div>
         </div>
