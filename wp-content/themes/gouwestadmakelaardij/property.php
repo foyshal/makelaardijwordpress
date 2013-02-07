@@ -309,15 +309,24 @@
 
           <div class="makelaar">
             <p><strong>Makelaar:</strong> <?php echo $property['makelaar']; ?></p>
-          </div>
+          </div>          
 
-          <?php if($property['datum_open_huis']): ?>
-            <div class="openhuis">
-              <h5>Open huis:</h5>
+          <?php
+          date_default_timezone_set('Europe/Amsterdam');
 
-              <p><?php echo $property['informatie_open_huis']; ?></p>
-            </div>
-          <?php endif; ?>
+          $dtA = strip_tags($property["datum_open_huis"]);
+          $dtB = date('c', strtotime('-1 day'));
+
+          if ( $dtA > $dtB ) {
+
+          }
+          else {
+            echo'<div class="openhuis">';
+            echo'<h5>Open huis:</h5>';
+            echo $property['informatie_open_huis'];
+            echo'</div>';
+          }  
+          ?>
 
           <div class="dewoning">
             <h5>De woning</h5>
