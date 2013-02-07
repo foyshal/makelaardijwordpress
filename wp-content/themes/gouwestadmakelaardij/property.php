@@ -59,6 +59,7 @@
     var myOptions = {
       zoom: <?php echo (!empty($wp_properties['configuration']['gm_zoom_level']) ? $wp_properties['configuration']['gm_zoom_level'] : 13); ?>,
       center: myLatlng,
+      scrollwheel: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 

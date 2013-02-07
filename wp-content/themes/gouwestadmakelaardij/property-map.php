@@ -63,6 +63,7 @@
       var myOptions = {
         zoom: <?php echo $zoom_level; ?>,
         center: these_coords,
+        scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
