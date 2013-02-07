@@ -241,24 +241,22 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span3">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn btn-primary btn-block plattegrond">Brochure</a>
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond">Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span3">
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn btn-primary btn-block plattegrond">Film</a>
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond">Film</a>
           </div>
-          <div class="span3">
-          <a href="/contact" class="btn btn-primary btn-block">Meer info</a>
-          </div>
-
           <?php endif; ?>
-
+          <div class="span3">
+          <a href="/contact" class="btn btn-primary btn-block">Bezichtigen?</a>
+          </div>
         </div>
 
 
@@ -315,8 +313,8 @@
 
           <?php if($property['datum_open_huis']): ?>
             <div class="openhuis">
-              <h5>open Huis:</h5>
-             
+              <h5>Open huis:</h5>
+
               <p><?php echo $property['informatie_open_huis']; ?></p>
             </div>
           <?php endif; ?>
