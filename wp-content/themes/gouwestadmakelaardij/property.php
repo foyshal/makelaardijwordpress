@@ -170,36 +170,32 @@
         </span>
         <div class="content">
            <h1 class="page-header prop-title"><?php the_title(); ?></h1>
-            <hp><?php the_tagline(); ?></hp>
-            <?php if($property['price']): ?>
+            <h4><?php the_tagline(); ?></h4>
                   <h2 class="property_price">
                   <?php 
-                    $huurstring = strip_tags($property["huren"]);
-                    if($huurstring == true){
-                      echo $property['huurprijs'];
-                      echo ",-";
-                      echo "<small>p mnd</small>";
-                    }
-                      else{
-                        echo $property['price'];
+                      $huurstring = strip_tags($property["huren"]);
+                      if($huurstring == true){
+                        echo $property['huurprijs'];
                         echo ",-";
+                        echo "<small> p mnd</small>";
                       }
-                    ?>
-
-                    <small> <?php 
-                    $pricetypestring = strip_tags($property["kosten_koper"]);
-                      if ($pricetypestring == "Costs_buyer"){
-                        echo "K.K.";
-                      }
-                        elseif ($pricetypestring == 'Free_on_name'){
-                          echo 'V.O.N.';
-                      } 
-            
-                    ?>
+                        else{
+                          echo $property['price'];
+                          echo ",-";
+                        }
+                      ?>
+                      <small> <?php 
+                      $pricetypestring = strip_tags($property["kosten_koper"]);
+                        if ($pricetypestring == "Costs_buyer"){
+                          echo "K.K.";
+                        }
+                          elseif ($pricetypestring == 'Free_on_name'){
+                            echo 'V.O.N.';
+                        } 
+              
+                      ?>
                   </small></h2>
 
-
-          <?php endif; ?>
         </div>
       </div>
     </div>
