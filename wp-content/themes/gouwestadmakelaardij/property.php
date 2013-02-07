@@ -258,15 +258,6 @@
 
         </div>
 
-              <script>
-              $(document).ready(function() {
-                  $('.plattegrond').fancybox({
-                    width: '95%',
-                    height: '95%',
-                    autoSize: true
-                    });
-              });
-            </script>
 
         <hr>
 

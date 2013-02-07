@@ -32,6 +32,22 @@ $(document).ready(function() {
 
 });
 
+
+ /* Init Fancybox
+-------------------------------------------------------------- */
+$(document).ready(function() {
+  $('.plattegrond').fancybox({
+    width: '95%',
+    height: '95%',
+    autoSize: true
+    });
+});
+
+$(document).ready(function() {
+  $('.fancybox').fancybox({
+    });
+});
+
  /* Animation on doc ready
 -------------------------------------------------------------- */
 $(document).ready(function()
