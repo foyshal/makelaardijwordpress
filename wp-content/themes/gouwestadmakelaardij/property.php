@@ -572,9 +572,11 @@
             <a class="addthis_button_preferred_2"></a>
             <a class="addthis_button_preferred_3"></a>
             </div>
+
+            <h5>Volg ons op Facebook</h5>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5113734261bf6917"></script>
             <!-- AddThis Button END -->
-<div class="fb-like" data-href="https://www.facebook.com/pages/Gouwestad-Makelaardij/176712525694328?fref=ts" data-send="false" data-width="450" data-show-faces="true" data-font="segoe ui"></div>
+<div class="fb-like" data-href="https://www.facebook.com/pages/Gouwestad-Makelaardij/176712525694328?fref=ts" data-send="false" data-width="100%" data-show-faces="true"></div>
 
           </div>
       </div>
