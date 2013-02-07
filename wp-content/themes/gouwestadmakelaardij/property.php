@@ -251,9 +251,8 @@
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span4">
-            <a href="" class="btn btn-large btn-primary btn-block">Woonfilm bekijken</a>
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Woonfilm bekijken</a>
           </div>
-
 
           <?php endif; ?>
 
