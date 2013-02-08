@@ -245,7 +245,7 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>/embed" target="_blank" class="btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
