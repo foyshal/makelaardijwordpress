@@ -98,6 +98,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+<section>
   <div id="container" class="container fullwidth-mobile">
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -585,6 +587,8 @@
     </div>
   </div><!-- End container for full width map -->
 </div>
+</section>
+
 
         <?php if(WPP_F::get_coordinates()): ?>
           <div id="property_map" class="<?php wpp_css('property::property_map'); ?>" style="width:100%; height:500px"></div>
