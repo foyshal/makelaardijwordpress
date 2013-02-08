@@ -383,7 +383,7 @@
             echo "Verzorgingsflat";
             } 
             else{
-            echo "";
+            echo $property["type"];
             }?>
            
             | <?php $soortwoningstring = strip_tags($property["soort"]);
@@ -452,7 +452,7 @@
             echo "Parkeerplaats";
             } 
             else{
-            echo "";
+            echo $property["soort"];
             }?></li>
 
           <?php if($property['bouwjaar']): ?>
