@@ -177,7 +177,7 @@ class WPP_Core {
     $scheme = (is_ssl() && !is_admin() ? 'https' : 'http');
 
     //** Load early so plugins can use them as well */
-    wp_register_script('jquery-fancybox', WPP_URL. 'third-party/fancybox/jquery.fancybox.pack.js', array('jquery'), '1.7.3' );
+    wp_register_script('jquery-fancybox', WPP_URL. 'third-party/fancybox/jquery.fancybox.pack.js',  false, null, false );
     wp_register_script('jquery-colorpicker', WPP_URL. 'third-party/colorpicker/colorpicker.js', array('jquery'));
     wp_register_script('jquery-easing', WPP_URL. 'third-party/fancybox/jquery.easing-1.3.pack.js', array('jquery'), '1.7.3' );
     wp_register_script('jquery-cookie', WPP_URL. 'js/jquery.smookie.js', array('jquery'), '1.7.3' );

@@ -52,13 +52,14 @@
 
     });
 
-
   function initialize_this_map() {
     <?php if($coords = WPP_F::get_coordinates()): ?>
     var myLatlng = new google.maps.LatLng(<?php echo $coords['latitude']; ?>,<?php echo $coords['longitude']; ?>);
     var myOptions = {
       zoom: <?php echo (!empty($wp_properties['configuration']['gm_zoom_level']) ? $wp_properties['configuration']['gm_zoom_level'] : 13); ?>,
       center: myLatlng,
+      scrollwheel: false,
+      draggable: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
@@ -240,33 +241,25 @@
         <!-- Links floorplanner ed -->
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-large btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+          <div class="span3">
+            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Brochure</a>
+          <div class="span3">
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond">Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
-          <div class="span4">
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-large btn-primary btn-block plattegrond">Woonfilm bekijken</a>
+          <div class="span3">
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond">Film</a>
           </div>
-
           <?php endif; ?>
-
+          <div class="span3">
+          <a href="/contact" class="btn btn-primary btn-block">Bezichtigen?</a>
+          </div>
         </div>
 
-              <script>
-              $(document).ready(function() {
-                  $('.plattegrond').fancybox({
-                    width: '95%',
-                    height: '95%',
-                    autoSize: true
-                    });
-              });
-            </script>
 
         <hr>
 
@@ -317,15 +310,24 @@
 
           <div class="makelaar">
             <p><strong>Makelaar:</strong> <?php echo $property['makelaar']; ?></p>
-          </div>
+          </div>          
 
-          <?php if($property['datum_open_huis']): ?>
-            <div class="openhuis">
-              <h5>open Huis:</h5>
-             
-              <p><?php echo $property['informatie_open_huis']; ?></p>
-            </div>
-          <?php endif; ?>
+          <?php
+          date_default_timezone_set('Europe/Amsterdam');
+
+          $dtA = strip_tags($property["datum_open_huis"]);
+          $dtB = date('c', strtotime('-1 day'));
+
+          if ( $dtA > $dtB ) {
+
+          }
+          else {
+            echo'<div class="openhuis">';
+            echo'<h5>Open huis:</h5>';
+            echo $property['informatie_open_huis'];
+            echo'</div>';
+          }  
+          ?>
 
           <div class="dewoning">
             <h5>De woning</h5>
