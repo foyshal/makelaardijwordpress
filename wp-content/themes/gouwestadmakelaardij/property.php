@@ -333,6 +333,7 @@
             echo'</div>';
           }  
           ?>
+          
 
           <div class="dewoning">
             <h5>De woning</h5>
