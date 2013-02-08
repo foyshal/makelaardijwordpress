@@ -494,7 +494,7 @@
           echo "Zuid Oost";
           }   
           else{
-          echo "";
+          echo $property["tuin"];
           }?></li>
           <?php endif; ?>
         </ul>
@@ -549,7 +549,7 @@
             echo "Muurverwarming";
             }  
             else{
-            echo "Geen verwarmingsgegevens beschikbaar";
+            echo $property["verwarming"];
             }?></p>
            <p><?php echo $property['energielabel']; ?></p>
 
