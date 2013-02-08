@@ -9758,3 +9758,6 @@ select {
   margin-left: 0;
 }
 /* WPP Sorter and Pagination End} */
+#property_map img {
+  max-width: none;
+}
