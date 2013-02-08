@@ -9122,7 +9122,6 @@ header:hover .header {
 .banner {
   padding: 0.8% 0;
   color: #fff;
-  margin-top: -2%;
 }
 .banner h4 {
   color: #fff;
@@ -9613,6 +9612,10 @@ h2.property_price {
 }
 .imp-elements.overview {
   font-size: 60%;
+}
+.links i {
+  font-size: 0.8em;
+  margin-right: 5%;
 }
 #overige-teksten {
   display: none;

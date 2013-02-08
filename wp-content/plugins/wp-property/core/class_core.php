@@ -177,9 +177,7 @@ class WPP_Core {
     $scheme = (is_ssl() && !is_admin() ? 'https' : 'http');
 
     //** Load early so plugins can use them as well */
-    wp_register_script('jquery-fancybox', WPP_URL. 'third-party/fancybox/jquery.fancybox.pack.js',  false, null, false );
     wp_register_script('jquery-colorpicker', WPP_URL. 'third-party/colorpicker/colorpicker.js', array('jquery'));
-    wp_register_script('jquery-easing', WPP_URL. 'third-party/fancybox/jquery.easing-1.3.pack.js', array('jquery'), '1.7.3' );
     wp_register_script('jquery-cookie', WPP_URL. 'js/jquery.smookie.js', array('jquery'), '1.7.3' );
     wp_register_script('jquery-ajaxupload', WPP_URL. 'js/fileuploader.js', array('jquery'));
     wp_register_script('wp-property-admin-overview', WPP_URL. 'js/wp-property-admin-overview.js', array('jquery'),WPP_Version);
@@ -202,7 +200,6 @@ class WPP_Core {
     wp_register_script('jquery-data-tables', WPP_URL . "third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
     wp_register_script('wp-property-galleria', WPP_URL. 'third-party/galleria/galleria-1.2.5.js', array('jquery'));
 
-    wp_register_style('jquery-fancybox-css', WPP_URL. 'third-party/fancybox/jquery.fancybox.css');
     wp_register_style('jquery-colorpicker-css', WPP_URL. 'third-party/colorpicker/colorpicker.css');
     wp_register_style('jquery-ui', WPP_URL. 'css/jquery-ui.css');
     wp_register_style('jquery-data-tables', WPP_URL . "third-party/dataTables/wpp-data-tables.css");
