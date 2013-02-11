@@ -247,17 +247,17 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-            <a href="<?php echo $property['floorplanner'] ?>/embed" target="_blank" class="btn btn-primary btn-block" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>/embed"  target="_blank" class="btn btn-primary btn-block plattegrond iframe" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span3">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block"><i class="icon-book"></i> Brochure</a>
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond iframe"><i class="icon-book"></i> Brochure</a>n
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span3">
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block"><i class="icon-film"></i> Film</a>
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond iframe"><i class="icon-film"></i> Film</a>
           </div>
           <?php endif; ?>
           <div class="span3">
@@ -326,7 +326,7 @@
           if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
-          elseif (( $dtA < $dtB ) && (!empty($dtA))) {
+          elseif (( $dtA > $dtB ) && (!empty($dtA))) {
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];
