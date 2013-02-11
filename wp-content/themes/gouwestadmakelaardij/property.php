@@ -326,7 +326,11 @@
           if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
+<<<<<<< HEAD
           elseif (( $dtA < $dtB ) && (!empty($dtA))) {
+=======
+          else if (( $dtA < $dtB ) && (!empty($dtA))) {
+>>>>>>> Updaten-Bootstrap-+-plugin
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];
