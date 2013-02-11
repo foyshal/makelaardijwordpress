@@ -247,7 +247,7 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-            <a href="<?php echo $property['floorplanner'] ?>/embed" target="_blank" class="btn btn-primary btn-block plattegrond" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>/embed" data-fancybox-type="iframe" target="_blank" class="btn btn-primary btn-block plattegrond" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
@@ -326,7 +326,7 @@
           if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
-          elseif (( $dtA < $dtB ) && (!empty($dtA))) {
+          elseif (( $dtA > $dtB ) && (!empty($dtA))) {
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];
