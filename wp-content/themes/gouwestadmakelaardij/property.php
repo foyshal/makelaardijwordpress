@@ -252,7 +252,7 @@
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span3">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond iframe"><i class="icon-book"></i> Brochure</a>n
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond iframe"><i class="icon-book"></i> Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
