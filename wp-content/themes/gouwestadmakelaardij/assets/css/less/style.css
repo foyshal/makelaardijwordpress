@@ -9005,7 +9005,11 @@ a:hover {
   padding: 0;
 }
 .breadcrumb {
-  font-size: 60%;
+  font-size: 0.5em;
+  font-weight: 300;
+}
+.breadcrumb i {
+  margin: 0 0.2em;
 }
 .btn {
   -webkit-transition: 0.3s ease;
