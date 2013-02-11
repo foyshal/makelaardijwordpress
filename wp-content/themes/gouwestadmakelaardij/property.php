@@ -247,29 +247,17 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-<<<<<<< HEAD
             <a href="<?php echo $property['floorplanner'] ?>/embed" target="_blank" class="btn btn-primary btn-block plattegrond" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
-=======
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-primary btn-block" rel="gallery1">Plattegrond</a>
->>>>>>> Foute sync
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span3">
-<<<<<<< HEAD
             <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond"><i class="icon-book"></i> Brochure</a>
-=======
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block">Brochure</a>
->>>>>>> Foute sync
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span3">
-<<<<<<< HEAD
             <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond"><i class="icon-film"></i> Film</a>
-=======
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block">Film</a>
->>>>>>> Foute sync
           </div>
           <?php endif; ?>
           <div class="span3">
