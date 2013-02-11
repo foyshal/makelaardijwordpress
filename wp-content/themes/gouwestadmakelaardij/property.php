@@ -318,19 +318,15 @@
           </div>          
 
           <?php
+          date_default_timezone_set('Europe/Amsterdam');
 
+          $dtA = strip_tags($property["datum_open_huis"]);
+          $dtB = date('c', strtotime('-1 day'));
 
-          $dtA = date('Y-m-d\TH:i:sP', $property["datum_open_huis"]);
-          $dtB = date('Y-m-d\TH:i:sP', strtotime('-1 day'));
-
-          echo $dtA;
-          echo $dtB;
-
-
-          if (( $dtA < $dtB ) && (!empty($dtA))) {
+          if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
-          elseif (( $dtA > $dtB )) {
+          elseif (( $dtA > $dtB ) && (!empty($dtA))) {
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];
