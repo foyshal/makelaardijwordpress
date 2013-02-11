@@ -9416,6 +9416,9 @@ footer.copy p {
 .denieuwehoop h5 {
   line-height: 1.2;
 }
+.denieuwehoop .modalcontent {
+  display: none;
+}
 .denieuwehoop .modalcontent .content {
   padding-bottom: 50px;
 }
@@ -9556,6 +9559,11 @@ section.pagination {
 }
 .align-right {
   text-align: right;
+}
+.label {
+  font-size: 0.8em;
+  font-weight: normal;
+  padding: 0.4em;
 }
 /* ==========================================================================
   Property 
