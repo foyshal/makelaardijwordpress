@@ -98,6 +98,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+
+<section>
   <div id="container" class="container fullwidth-mobile">
     <div id="content" class="row-fluid" role="main">
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -192,7 +194,10 @@
                         }
                           elseif ($pricetypestring == 'Free_on_name'){
                             echo 'V.O.N.';
-                        } 
+                        }
+                          else {
+                            echo $property["kosten_koper"];
+                        }
               
                       ?>
                   </small></h2>
@@ -242,21 +247,21 @@
         <div class="row-fluid links">
           <?php if($property['floorplanner']): ?>
           <div class="span3">
-            <a href="<?php echo $property['floorplanner'] ?>" class="btn btn-primary btn-block plattegrond" rel="gallery1">Plattegrond</a>
+            <a href="<?php echo $property['floorplanner'] ?>/embed" target="_blank" class="btn btn-primary btn-block plattegrond" rel="gallery1"><i class="icon-picture"></i> Plattegrond</a>
           </div>
           <?php endif; ?>
           <?php if($property['brochure']): ?>
           <div class="span3">
-            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond">Brochure</a>
+            <a href="<?php echo $property['brochure'] ?>?mode=window" target="_blank" class="btn btn-primary btn-block plattegrond"><i class="icon-book"></i> Brochure</a>
           </div>
           <?php endif; ?>
           <?php if($property['woonfilm']): ?>
           <div class="span3">
-            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond">Film</a>
+            <a href="<?php echo $property['woonfilm'] ?>" target="_blank" class="btn btn-primary btn-block plattegrond"><i class="icon-film"></i> Film</a>
           </div>
           <?php endif; ?>
           <div class="span3">
-          <a href="/contact" class="btn btn-primary btn-block">Bezichtigen?</a>
+          <a href="/contact" class="btn btn-primary btn-block"><i class="icon-eye-open"></i> Bezichtigen</a>
           </div>
         </div>
 
@@ -318,16 +323,17 @@
           $dtA = strip_tags($property["datum_open_huis"]);
           $dtB = date('c', strtotime('-1 day'));
 
-          if ( $dtA > $dtB ) {
+          if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
-          else {
+          elseif (( $dtA < $dtB ) && (!empty($dtA))) {
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];
             echo'</div>';
           }  
           ?>
+
 
           <div class="dewoning">
             <h5>De woning</h5>
@@ -380,7 +386,7 @@
             echo "Verzorgingsflat";
             } 
             else{
-            echo "";
+            echo $property["type"];
             }?>
            
             | <?php $soortwoningstring = strip_tags($property["soort"]);
@@ -449,7 +455,7 @@
             echo "Parkeerplaats";
             } 
             else{
-            echo "";
+            echo $property["soort"];
             }?></li>
 
           <?php if($property['bouwjaar']): ?>
@@ -491,7 +497,7 @@
           echo "Zuid Oost";
           }   
           else{
-          echo "";
+          echo $property["tuin"];
           }?></li>
           <?php endif; ?>
         </ul>
@@ -546,7 +552,7 @@
             echo "Muurverwarming";
             }  
             else{
-            echo "Geen verwarmingsgegevens beschikbaar";
+            echo $property["verwarming"];
             }?></p>
            <p><?php echo $property['energielabel']; ?></p>
 
@@ -573,17 +579,17 @@
             <a class="addthis_button_preferred_2"></a>
             <a class="addthis_button_preferred_3"></a>
             </div>
+            <!-- AddThis Button END -->
 
             <h5>Volg ons op Facebook</h5>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5113734261bf6917"></script>
-            <!-- AddThis Button END -->
 <div class="fb-like" data-href="https://www.facebook.com/pages/Gouwestad-Makelaardij/176712525694328?fref=ts" data-send="false" data-width="100%" data-show-faces="true"></div>
-
           </div>
       </div>
     </div>
   </div><!-- End container for full width map -->
 </div>
+</section>
+
 
         <?php if(WPP_F::get_coordinates()): ?>
           <div id="property_map" class="<?php wpp_css('property::property_map'); ?>" style="width:100%; height:500px"></div>

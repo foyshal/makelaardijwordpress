@@ -85,6 +85,9 @@
                                                 elseif ($pricetypestring == 'Free_on_name'){
                                                   echo 'V.O.N.';
                                               } 
+                                              else {
+                                                  echo $property["kosten_koper"];
+                                              }
                                     
                                             ?>
                                         </small>
