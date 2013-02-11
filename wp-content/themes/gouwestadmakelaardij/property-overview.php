@@ -41,6 +41,25 @@
                             <div class="<?php wpp_css('property_overview::left_column', "wpp_overview_left_column"); ?>">
                               <?php property_overview_image(); ?>
                             </div>
+
+                                <?php 
+                                  $huurstring = strip_tags($property["status"]);
+                                  if($huurstring == Sold){
+                                    echo "<span class='label'>Verkocht</span>";
+                                    }
+                                  elseif ($huurstring == Sold_under_conditions){
+                                    echo "<span class='label'>Verkocht onder voorbehoud</span>";
+                                    } 
+                                    elseif ($huurstring == Rented_under_conditions){
+                                    echo "<span class='label'>Verhuurd onder voorbehoud</span>";
+                                    } 
+                                    elseif ($huurstring == Rented){
+                                    echo "<span class='label'>Verhuurd</span>";
+                                    }
+                                    else{
+
+                                    }
+                                  ?>
                             <ul class="elements">
                                 <?php if($property['gbo']): ?>
                                       <li><i class="icon-exchange"></i> <?php echo $property['gbo']; ?> m<sup>2</sup></li>

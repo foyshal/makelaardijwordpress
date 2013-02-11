@@ -1,11 +1,26 @@
 <?php
 
+
     //path to directory to scan
     $directory = "xml/";
 
-    $naam = "tst";
- 
-    //get all image files with a .jpg extension.
+    //Delete old xml files
+    foreach(glob($directory.'*.*') as $v){
+    unlink($v);
+    }
+
+    // Download & extract new zip file with xml's to directory
+    $zip = new ZipArchive;     
+        $res = $zip->open('https://api.wazzupsoftware.com/MultipleListingService/a95aff8f-1a5e-44cc-9438-37aaff2c255f/zip');
+        if ($res === TRUE) {
+         $zip->extractTo($directory);
+         $zip->close();
+         echo 'Unzip was successful';
+         } else {
+         echo 'Unzip was not successful';
+    }
+
+    //get all xml files with a .xml extension.
     $filenames = glob($directory . "*.xml");
 
     $docList = new DOMDocument();
