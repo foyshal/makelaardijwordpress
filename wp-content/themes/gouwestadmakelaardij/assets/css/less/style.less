@@ -44,6 +44,10 @@ small{
   font-size: 80%;
 }
 
+.row-fluid [class*="span"] {
+  min-height: 1em;
+}
+
 
 /* ==========================================================================
   Navs
@@ -60,6 +64,8 @@ a{
 .navbar-inner{
   border-radius: 0;
   box-shadow: none;
+  background: none;
+  border: none;
 }
 
 .navbar .brand{
@@ -719,10 +725,14 @@ section.pagination{
 
 .woningnaam .label{
   margin-bottom: 2%;
+  padding: 10px 15px;
 }
 
 h2.property_price{
   font-size: 2em;
+  small{
+    font-size: 0.4em;
+  }
 }
 
 .carousel .item > img{
@@ -796,8 +806,11 @@ select {
 }
 
 
-
-
+.wpp_search_button.btn.btn-large{
+  background-color: #FCAF17;
+  background-image: none;
+  color: #fff;
+}
 
 
 
