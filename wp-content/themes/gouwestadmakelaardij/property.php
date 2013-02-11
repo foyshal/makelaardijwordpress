@@ -323,10 +323,10 @@
           $dtA = strip_tags($property["datum_open_huis"]);
           $dtB = date('c', strtotime('-1 day'));
 
-          if ( $dtA > $dtB ) {
+          if (( $dtA > $dtB ) && (!empty($dtA))) {
 
           }
-          else {
+          else if (( $dtA < $dtB ) && (!empty($dtA))) {
             echo'<div class="openhuis">';
             echo'<h5>Open huis:</h5>';
             echo $property['informatie_open_huis'];

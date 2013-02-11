@@ -177,7 +177,7 @@ class WPP_Core {
     $scheme = (is_ssl() && !is_admin() ? 'https' : 'http');
 
     //** Load early so plugins can use them as well */
-    wp_register_script('jquery-fancybox', WPP_URL. 'third-party/fancybox/jquery.fancybox.pack.js',  false, null, false );
+    wp_register_script('jquery-fancybox', WPP_URL. 'third-party/fancybox/jquery.fancybox-1.3.4.pack.js', array('jquery'), '1.7.3' );
     wp_register_script('jquery-colorpicker', WPP_URL. 'third-party/colorpicker/colorpicker.js', array('jquery'));
     wp_register_script('jquery-easing', WPP_URL. 'third-party/fancybox/jquery.easing-1.3.pack.js', array('jquery'), '1.7.3' );
     wp_register_script('jquery-cookie', WPP_URL. 'js/jquery.smookie.js', array('jquery'), '1.7.3' );
@@ -202,7 +202,7 @@ class WPP_Core {
     wp_register_script('jquery-data-tables', WPP_URL . "third-party/dataTables/jquery.dataTables.min.js", array('jquery'));
     wp_register_script('wp-property-galleria', WPP_URL. 'third-party/galleria/galleria-1.2.5.js', array('jquery'));
 
-    wp_register_style('jquery-fancybox-css', WPP_URL. 'third-party/fancybox/jquery.fancybox.css');
+    wp_register_style('jquery-fancybox-css', WPP_URL. 'third-party/fancybox/jquery.fancybox-1.3.4.css');
     wp_register_style('jquery-colorpicker-css', WPP_URL. 'third-party/colorpicker/colorpicker.css');
     wp_register_style('jquery-ui', WPP_URL. 'css/jquery-ui.css');
     wp_register_style('jquery-data-tables', WPP_URL . "third-party/dataTables/wpp-data-tables.css");
@@ -599,7 +599,6 @@ class WPP_Core {
       }
     }
 
-
     if( (float)$update_data[ 'latitude' ] == 0 ) $update_data['latitude'] = '';
     if( (float)$update_data[ 'longitude' ] == 0 ) $update_data['longitude'] = '';
 
@@ -691,6 +690,8 @@ class WPP_Core {
 
     if($geo_data->status == 'OVER_QUERY_LIMIT') {
       //** Could add some sort of user notification that over limit */
+    }else{
+      update_post_meta( $post_id, 'wpp::last_address_validation', time());
     }
 
     //* Check if property has children */
@@ -934,7 +935,7 @@ class WPP_Core {
     }
 
     //** Monitor taxonomy archive queries */
-    if(is_tax() && in_array($wp_query->query_vars['taxonomy'], array_keys($wp_taxonomies))) {
+    if(is_tax() && in_array($wp_query->query_vars['taxonomy'], array_keys((array)$wp_taxonomies))) {
       //** Once get_properties(); can accept taxonomy searches, we can inject a search request in here */
     }
 
@@ -1350,7 +1351,7 @@ class WPP_Core {
 
       $defaults = apply_filters('shortcode_property_overview_allowed_args', $defaults, $atts);
 
-      if($atts['ajax_call']) {
+      if(!empty($atts['ajax_call'])) {
         //** If AJAX call then the passed args have all the data we need */
         $wpp_query = $atts;
 
@@ -1684,8 +1685,8 @@ class WPP_Core {
       $property = $post;
     }
 
-    //** Convert to object */
-    $property = (object) $property;
+    //** Convert to array */
+    $property = (array) $property;
 
     //** Force map to be enabled here */
     $skip_default_google_map_check = true;
