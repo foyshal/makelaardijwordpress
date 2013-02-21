@@ -422,7 +422,7 @@
             echo $property["type"];
             }?>
            
-            <?php $soortwoningstring = strip_tags($property["soort"]);
+            <?php if($property['soort']): ?>|<?php endif; ?> <?php $soortwoningstring = strip_tags($property["soort"]);
 
             if ($soortwoningstring == "Single_family_house"){
             echo "Eengezinswoning";
