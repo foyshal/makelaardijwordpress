@@ -232,6 +232,26 @@
               <p><i class="icon-leaf"></i> Perceel: <?php echo $property['perceel']; ?> m<sup>2</sup></p>
             </div>
           <?php endif; ?>
+          <?php if($property['hoofdbestemming']): ?>
+            <div class="span3">
+              <p><i class="icon-building"></i> <?php echo $property['hoofdbestemming']; ?></p>
+            </div>
+          <?php endif; ?>
+          <?php if($property['kantoren']): ?>
+            <div class="span3">
+              <p><i class="icon-laptop"></i> Kantoren: <?php echo $property['kantoren']; ?></p>
+            </div>
+          <?php endif; ?>
+          <?php if($property['units']): ?>
+            <div class="span3">
+              <p><i class="icon-sitemap"></i> Units: <?php echo $property['units']; ?></p>
+            </div> 
+          <?php endif; ?>
+          <?php if($property['parkeren_bog']): ?>
+            <div class="span3">
+              <p><i class="icon-truck"></i> Parkeren: <?php echo $property['parkeren_bog']; ?></p>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -336,7 +356,20 @@
 
 
           <div class="dewoning">
-            <h5>De woning</h5>
+            <?php $categoriestring = strip_tags($property["property_type"]);
+            if ($categoriestring == "single_family_home"){
+            echo "<h5>De woning</h5>";
+            }
+            elseif ($categoriestring == "bedrijfsonroerend_goed"){
+            echo "<h5>Het object</h5>";
+            }
+            elseif ($categoriestring == "appartement"){
+            echo "<h5>Het appartement</h5>";
+            }  
+            else{
+            echo "<h5>De woning</h5>";
+            }?>
+
             <ul class="unstyled">
             <li><?php $typewoningstring = strip_tags($property["type"]);
 
@@ -389,7 +422,7 @@
             echo $property["type"];
             }?>
            
-            | <?php $soortwoningstring = strip_tags($property["soort"]);
+            <?php $soortwoningstring = strip_tags($property["soort"]);
 
             if ($soortwoningstring == "Single_family_house"){
             echo "Eengezinswoning";
@@ -458,6 +491,9 @@
             echo $property["soort"];
             }?></li>
 
+          <?php if($property['bouwvorm']): ?>
+            <li>Bouwvorm: <?php echo $property['bouwvorm']; ?></li>
+          <?php endif; ?>
           <?php if($property['bouwjaar']): ?>
             <li>Bouwjaar: <?php echo $property['bouwjaar']; ?></li>
           <?php endif; ?>
@@ -500,6 +536,24 @@
           echo $property["tuin"];
           }?></li>
           <?php endif; ?>
+          <?php if($property['hoofdbestemming']): ?>
+            <li>Hoofdbestemming: <?php echo $property['hoofdbestemming']; ?></li>
+           <?php endif; ?>
+           <?php if($property['nevenbestemming']): ?>
+           <li>Nevenbestemming: <?php echo $property['nevenbestemming']; ?></li>
+            <?php endif; ?>
+            <?php if($property['locatie_bog']): ?>
+           <li>Locatie: <?php echo $property['locatie_bog']; ?> meter</li>
+            <?php endif; ?>
+            <?php if($property['units']): ?>
+           <li>Aantal units: <?php echo $property['units']; ?></li>
+            <?php endif; ?>
+           <?php if($property['kantoren']): ?>
+            <li>Aantal kantoren: <?php echo $property['kantoren']; ?></li>
+           <?php endif; ?>
+           <?php if($property['parkeren_bog']): ?>
+           <li>Aantal parkeerplaatsen: <?php echo $property['parkeren_bog']; ?></li>
+            <?php endif; ?>
         </ul>
       </div>
 
@@ -556,13 +610,19 @@
             }?></p>
            <p><?php echo $property['energielabel']; ?></p>
 
-           <h5>NEN 2580</h5>
+           <?php $oppervlaktestring = strip_tags($property["property_type"]);
+            if ($oppervlaktestring == "bedrijfsonroerend_goed"){
+            echo "<h5>Maatvoering</h5>";
+            }  
+            else{
+            echo "<h5>NEN 2580</h5>";
+            }?>
            <ul class="unstyled nen">
            <?php if($property['gbo']): ?>
             <li>Woonoppervlakte: <?php echo $property['gbo']; ?> m<sup>2</sup></li>
            <?php endif; ?>
            <?php if($property['opp_overige_inpandige_ruimten']): ?>
-           <li>Ovg. inpandige ruimte :<?php echo $property['opp_overige_inpandige_ruimten']; ?> m<sup>2</sup></li>
+           <li>Ovg. inpandige ruimte:<?php echo $property['opp_overige_inpandige_ruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
             <?php if($property['opp_externe_bergruimten']): ?>
            <li>Externe bergruimte: <?php echo $property['opp_externe_bergruimten']; ?> m<sup>2</sup></li>
@@ -570,9 +630,30 @@
             <?php if($property['opp_gebouwgebonden_buitenruimten']): ?>
            <li>Gebouwgebonden buitenruimte: <?php echo $property['opp_gebouwgebonden_buitenruimten']; ?> m<sup>2</sup></li>
             <?php endif; ?>
+           <?php if($property['gbo_bog']): ?>
+            <li>Totale oppervlakte: <?php echo $property['gbo_bog']; ?> m<sup>2</sup></li>
+           <?php endif; ?>
+           <?php if($property['bedrijfsruimte_gbo']): ?>
+           <li>Bedrijfsruimte:<?php echo $property['bedrijfsruimte_gbo']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+            <?php if($property['kantoor_gbo']): ?>
+           <li>Kantoorruimte: <?php echo $property['kantoor_gbo']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+            <?php if($property['winkel_gbo']): ?>
+           <li>Winkelruimte: <?php echo $property['winkel_gbo']; ?> m<sup>2</sup></li>
+            <?php endif; ?>
+           <?php if($property['vrije_hoogte']): ?>
+           <li>Vrije hoogte: <?php echo $property['vrije_hoogte']; ?> meter</li>
+            <?php endif; ?>
             </ul>
 
-            <h5>Deel deze woning</h5>
+            <?php $propertysharestring = strip_tags($property["property_type"]);
+            if ($propertysharestring == "bedrijfsonroerend_goed"){
+            echo "<h5>Deel dit object</h5>";
+            }  
+            else{
+            echo "<h5>Deel deze woning</h5>";
+            }?>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a>
