@@ -460,6 +460,9 @@
             elseif ($soortwoningstring == "Maisonette"){
             echo "Maisonette";
             } 
+            elseif ($soortwoningstring == "Common_apartment"){
+            echo "Appartement";
+            }
             elseif ($soortwoningstring == "Gallery_flat"){
             echo "Gallerijflat";
             } 
