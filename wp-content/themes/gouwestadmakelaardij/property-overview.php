@@ -152,7 +152,10 @@
                                           }
                                           elseif ($categoriestring == "apartment"){
                                           echo "bekijk appartement";
-                                          }  
+                                          }
+                                          elseif ($categoriestring == "parking"){
+                                          echo "bekijk parkeerplaats";
+                                          }   
                                           else{
                                           echo "bekijk woning";
                                           }?>
