@@ -70,6 +70,15 @@
                                   <?php if($property['kamers']): ?>
                                       <li><i class="icon-group"></i> <?php echo $property['kamers']; ?></li>
                                   <?php endif; ?>
+                                  <?php if($property['hoofdbestemming']): ?>
+                                      <li><i class="icon-building"></i> <?php echo $property['hoofdbestemming']; ?></li>
+                                  <?php endif; ?>
+                                  <?php if($property['gbo_bog']): ?>
+                                      <li><i class="icon-exchange"></i> <?php echo $property['gbo_bog']; ?> m<sup>2</sup></li>
+                                  <?php endif; ?>
+                                  <?php if($property['parkeren_bog']): ?>
+                                      <li><i class="icon-truck"></i> <?php echo $property['parkeren_bog']; ?></li>
+                                  <?php endif; ?>
                             </ul>
                         </div>
                         <div class="span8">
