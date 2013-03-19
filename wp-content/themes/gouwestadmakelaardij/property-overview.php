@@ -142,7 +142,21 @@
                                 <?php endif; ?>
 
                                 <div class="align-right">
-                                    <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary btn-small">bekijk woning  <i class="icon-circle-arrow-right"></i></a>
+                                    <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary btn-small">  
+                                      <?php $categoriestring = strip_tags($property["property_type"]);
+                                          if ($categoriestring == "single_family_home"){
+                                          echo "bekijk woning";
+                                          }
+                                          elseif ($categoriestring == "bedrijfsonroerend_goed"){
+                                          echo "bekijk object";
+                                          }
+                                          elseif ($categoriestring == "apartment"){
+                                          echo "bekijk appartement";
+                                          }  
+                                          else{
+                                          echo "bekijk woning";
+                                          }?>
+                                      <i class="icon-circle-arrow-right"></i></a>
                                 </div>
 
                                 <?php if($show_children && $property['children']): ?>
