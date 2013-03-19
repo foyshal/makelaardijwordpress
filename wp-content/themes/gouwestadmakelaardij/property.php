@@ -363,7 +363,7 @@
             elseif ($categoriestring == "bedrijfsonroerend_goed"){
             echo "<h5>Het object</h5>";
             }
-            elseif ($categoriestring == "appartement"){
+            elseif ($categoriestring == "apartment"){
             echo "<h5>Het appartement</h5>";
             }  
             else{
