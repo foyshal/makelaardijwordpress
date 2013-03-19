@@ -144,18 +144,9 @@
                                 <div class="align-right">
                                     <a href="<?php echo $property['permalink']; ?>" class="btn btn-primary btn-small">  
                                       <?php $categoriestring = strip_tags($property["property_type"]);
-                                          if ($categoriestring == "single_family_home"){
-                                          echo "bekijk woning";
-                                          }
-                                          elseif ($categoriestring == "bedrijfsonroerend_goed"){
+                                          if ($categoriestring == "bedrijfsonroerend_goed"){
                                           echo "bekijk object";
-                                          }
-                                          elseif ($categoriestring == "apartment"){
-                                          echo "bekijk appartement";
-                                          }
-                                          elseif ($categoriestring == "parking"){
-                                          echo "bekijk parkeerplaats";
-                                          }   
+                                          }  
                                           else{
                                           echo "bekijk woning";
                                           }?>
