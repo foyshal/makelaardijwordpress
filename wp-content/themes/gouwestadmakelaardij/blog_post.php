@@ -51,8 +51,7 @@ Template Name: Blog Post Gouwestad Makelaardij
 </section>
 
 <section class="graylighter smaller-font">
-	<div class="container">
-					        
+	<div class="container">				        
 		<div class="row-fluid">
 			<div class="span12">
 				<ul class="pager">
