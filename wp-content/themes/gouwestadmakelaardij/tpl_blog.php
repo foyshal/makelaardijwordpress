@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Blog
+Template Name: Blog Gouwestad Makelaardij
 */
 ?>
 
@@ -26,9 +26,9 @@ Template Name: Blog
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span4">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(1000,1000) ); ?></a>
-				<i class="icon-calendar"></i> <?php the_date(); ?> <br>
-				<i class="icon-bookmark-empty"></i> <?php the_category(' '); ?>
+				<p><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(700,700) ); ?></a></p>
+				<p><i class="icon-calendar"></i> <?php the_date(); ?> <br>
+				<i class="icon-bookmark-empty"></i> <?php the_category(' '); ?> </p>
 			</div>
 
 			<div class="span8">
@@ -41,25 +41,28 @@ Template Name: Blog
 				</div><!-- /#post-<?php get_the_ID(); ?> -->
 			</div>
 		</div>
-		   <hr>
+	  <hr>
+	</div>
+</section>
+
 		<?php endwhile; else: ?>
 		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 		<?php endif; ?>
-	</div>
-</section>
 
 <section class="graylighter smaller-font">
 	<div class="container">
 					        
 		<div class="row-fluid">
-			<div class="span12">					 
-			    <div class="navigation">
-			     	<div class="align-right">
-					    <span class="newer"><?php previous_posts_link(__('<i class="icon-double-angle-left"></i> Nieuwere berichten')) ?></span> <span class="older"><?php next_posts_link(__('Oudere berichten <i class="icon-double-angle-right"></i>')) ?></span>
-			    	</div>
-			    </div><!-- /.navigation -->
+			<div class="span12">
+				<ul class="pager">
+					<li>
+					<?php previous_posts_link(__('<i class="icon-double-angle-left"></i> Nieuwere berichten')) ?>
+					</li>
+					<li>
+					<?php next_posts_link(__('Oudere berichten <i class="icon-double-angle-right"></i>')) ?> 
+					</li>
+				</ul>				  
 			</div>
 		</div>
- 
 	</div>
 </section>
