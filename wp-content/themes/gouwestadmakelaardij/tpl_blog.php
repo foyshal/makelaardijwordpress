@@ -12,6 +12,15 @@ Template Name: Blog
 <section>
 	<div class="container">
 		<div class="row-fluid">
+			<div class="span12">
+				<div class="page-header center">
+					<h1>Het laatste nieuws</h1>
+					<p class="intro center">Lees hier over ons, de ontwikkelingen op de woningmarkt maar ook op de financiele markt voor bijvoorbeelde de hypotheken.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-fluid">
 			<div class="span4">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(1000,1000) ); ?></a>
 				<i class="icon-calendar"></i> <?php the_date(); ?> <br>
@@ -28,10 +37,10 @@ Template Name: Blog
 				</div><!-- /#post-<?php get_the_ID(); ?> -->
 			</div>
 		</div>
-
-			<?php endwhile; else: ?>
-			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-			<?php endif; ?>
+		   <hr>
+		<?php endwhile; else: ?>
+		<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+		<?php endif; ?>
 	</div>
 </section>
 
