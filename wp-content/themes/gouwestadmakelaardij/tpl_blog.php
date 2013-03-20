@@ -6,9 +6,6 @@ Template Name: Blog
 
 <?php get_template_part('templates/page', 'header'); ?>
 
-<?php query_posts('post_type=post&post_status=publish&posts_per_page=2&paged='. get_query_var('paged')); ?>
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
 <section>
 	<div class="container">
 		<div class="row-fluid">
@@ -19,7 +16,14 @@ Template Name: Blog
 				</div>
 			</div>
 		</div>
+	</div>
+</section>
 
+<?php query_posts('post_type=post&post_status=publish&posts_per_page=2&paged='. get_query_var('paged')); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+<section>
+	<div class="container">
 		<div class="row-fluid">
 			<div class="span4">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(1000,1000) ); ?></a>
